@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Ground
+  - Lioran
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Wall
+  - Lioran
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1373837101
+    locked: 0
+  - name: Ground
+    uniqueID: 552706395
+    locked: 0
+  - name: Leaf
+    uniqueID: 3094879231
+    locked: 0
+  - name: Lioran
+    uniqueID: 2313345827
+    locked: 0
+  - name: Foreground
+    uniqueID: 1792345365
+    locked: 0
+  - name: Enemies
+    uniqueID: 2562386217
+    locked: 0
+  m_RenderingLayers:
+  - Default

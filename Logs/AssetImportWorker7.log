@@ -1,0 +1,801 @@
+Using pre-set license
+Built from 'trunk' branch; Version is '6000.0.3f1 (019aa96b6ed9) revision 105129'; Using compiler version '193933522'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'en' Physical Memory: 32664 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.3f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker7
+-projectPath
+C:/Users/PC GAMER/Documents/Lioran
+-logFile
+Logs/AssetImportWorker7.log
+-srvPort
+64661
+-job-worker-count
+5
+-background-job-worker-count
+8
+-asset-garbage-collectors
+1
+Successfully changed project path to: C:/Users/PC GAMER/Documents/Lioran
+C:/Users/PC GAMER/Documents/Lioran
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [25540]  Target information:
+
+Player connection [25540]  * "[IP] 26.95.194.59 [Port] 0 [Flags] 2 [Guid] 2916278680 [EditorId] 2916278680 [Version] 1048832 [Id] WindowsEditor(7,lol) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25540]  * "[IP] 172.21.64.1 [Port] 0 [Flags] 2 [Guid] 2916278680 [EditorId] 2916278680 [Version] 1048832 [Id] WindowsEditor(7,lol) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25540]  * "[IP] 172.28.240.1 [Port] 0 [Flags] 2 [Guid] 2916278680 [EditorId] 2916278680 [Version] 1048832 [Id] WindowsEditor(7,lol) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25540]  * "[IP] 172.26.96.1 [Port] 0 [Flags] 2 [Guid] 2916278680 [EditorId] 2916278680 [Version] 1048832 [Id] WindowsEditor(7,lol) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25540]  * "[IP] 172.24.160.1 [Port] 0 [Flags] 2 [Guid] 2916278680 [EditorId] 2916278680 [Version] 1048832 [Id] WindowsEditor(7,lol) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25540]  * "[IP] 192.168.1.107 [Port] 0 [Flags] 2 [Guid] 2916278680 [EditorId] 2916278680 [Version] 1048832 [Id] WindowsEditor(7,lol) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25540] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [25540] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
+Library Redirect Path: Library/
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+Refreshing native plugins compatible for Editor in 3.28 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.3f1 (019aa96b6ed9)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/PC GAMER/Documents/Lioran/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2504)
+    Vendor:   NVIDIA
+    VRAM:     12115 MB
+    Driver:   32.0.15.7216
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.3f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56316
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.3f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.3f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.005828 seconds.
+- Loaded All Assemblies, in  0.432 seconds
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 202 ms
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.718 seconds
+Domain Reload Profiling: 1148ms
+	BeginReloadAssembly (137ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (57ms)
+	LoadAllAssembliesAndSetupDomain (179ms)
+		LoadAssemblies (134ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (175ms)
+			TypeCache.Refresh (174ms)
+				TypeCache.ScanAssembly (160ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (719ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (653ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (337ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (5ms)
+			ProcessInitializeOnLoadAttributes (118ms)
+			ProcessInitializeOnLoadMethodAttributes (189ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.248 seconds
+Refreshing native plugins compatible for Editor in 1.98 ms, found 4 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+The project currently uses the compatibility mode where the Render Graph API is disabled. Support for this mode will be removed in future Unity versions. Migrate existing ScriptableRenderPasses to the new RenderGraph API. After the migration, disable the compatibility mode in Edit > Projects Settings > Graphics > Render Graph.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+UnityEngine.Rendering.Universal.WarnUsingNonRenderGraph:EmitConsoleWarning () (at ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs:438)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: ./Library/PackageCache/com.unity.render-pipelines.universal/Runtime/Data/UniversalRenderPipelineAsset.cs Line: 438)
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.075 seconds
+Domain Reload Profiling: 2316ms
+	BeginReloadAssembly (432ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (44ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (51ms)
+	LoadAllAssembliesAndSetupDomain (698ms)
+		LoadAssemblies (459ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (357ms)
+			TypeCache.Refresh (256ms)
+				TypeCache.ScanAssembly (232ms)
+			BuildScriptInfoCaches (85ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (1076ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (777ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (77ms)
+			ProcessInitializeOnLoadAttributes (409ms)
+			ProcessInitializeOnLoadMethodAttributes (259ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 2.84 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 204 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6533 unused Assets / (7.4 MB). Loaded Objects now: 7258.
+Memory consumption went from 188.0 MB to 180.6 MB.
+Total: 12.710400 ms (FindLiveObjects: 0.853900 ms CreateObjectMapping: 1.271900 ms MarkObjects: 6.210200 ms  DeleteObjects: 4.373200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 17955.202819 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00015.png
+  artifactKey: Guid(0ca8f2732aaa9014991a8a12c2cb021a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00015.png using Guid(0ca8f2732aaa9014991a8a12c2cb021a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '4ec26c0d1471b40e5a76df242e8de309') in 0.217843 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00020.png
+  artifactKey: Guid(c24881c0eb2a5bd4db7f8f57351b4874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00020.png using Guid(c24881c0eb2a5bd4db7f8f57351b4874) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '57ecc1125aac9280cf716395474bbd13') in 0.0158436 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00017.png
+  artifactKey: Guid(862a9b48efdd6e84c9231d123f4152ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00017.png using Guid(862a9b48efdd6e84c9231d123f4152ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '43e9a739c57ded62ca474809edb37a4a') in 0.0150927 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00022.png
+  artifactKey: Guid(7da5b155929cb724fb82c34d693ad8e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00022.png using Guid(7da5b155929cb724fb82c34d693ad8e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '1890ae806a744ceb5a7a3474e141963e') in 0.0157131 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00025.png
+  artifactKey: Guid(01eb2ef3d444e3b4ea2d52def7651d36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00025.png using Guid(01eb2ef3d444e3b4ea2d52def7651d36) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'dfeb960fd331c77827e1611580bcc2a4') in 0.0150738 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00027.png
+  artifactKey: Guid(05d828e7afaa8a4488c4498e6579fd16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00027.png using Guid(05d828e7afaa8a4488c4498e6579fd16) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '3076182e1d26c5d7db856bfe77dd1df7') in 0.0176134 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00024.png
+  artifactKey: Guid(c8696f35963e6de4b97d5e4e9ec31698) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00024.png using Guid(c8696f35963e6de4b97d5e4e9ec31698) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '8f88e8bb926bdb26f671824ea30a9d12') in 0.0159947 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.766923 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00001.png
+  artifactKey: Guid(497fc35af8ccbe149b273050fcef6832) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00001.png using Guid(497fc35af8ccbe149b273050fcef6832) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '47259616b65c99159dd52745209052e4') in 0.0178597 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00008.png
+  artifactKey: Guid(5b80280abc38844418b709c9ed6861b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00008.png using Guid(5b80280abc38844418b709c9ed6861b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '27df6657cf78e64388dcbec39766cc81') in 0.016212 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00007.png
+  artifactKey: Guid(296681c5f476411458111360f064c630) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00007.png using Guid(296681c5f476411458111360f064c630) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '6489de21d64aa87e358eda830f2624b5') in 0.018721 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00004.png
+  artifactKey: Guid(bc0c5b5f6ff3b984f8686d526ec6925a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00004.png using Guid(bc0c5b5f6ff3b984f8686d526ec6925a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'a5e50e06d234ec4a6c6c443b2f88b921') in 0.0153011 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00002.png
+  artifactKey: Guid(c9cf5d00e087f244c882d902d87aa9f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00002.png using Guid(c9cf5d00e087f244c882d902d87aa9f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '5751dde29355fb60e23c29a3cb2cfb1d') in 0.0163017 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00009.png
+  artifactKey: Guid(aa65ed8ca3685c14d92cfb28831146e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00009.png using Guid(aa65ed8ca3685c14d92cfb28831146e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '55013835ba45428c3ff0cb568a05d319') in 0.017164 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00005.png
+  artifactKey: Guid(7bbb0ba461221a44d8b0a25dcf554b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Comp 1/PlantSmall_00005.png using Guid(7bbb0ba461221a44d8b0a25dcf554b1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '76950501a6388beaa6c2695e855a9cd7') in 0.0169601 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 190.592062 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00001.png
+  artifactKey: Guid(2b8f8c1d152bb1a4186dda654a003907) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00001.png using Guid(2b8f8c1d152bb1a4186dda654a003907) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '8883adf0fab338dd8382196bad469cdc') in 0.0215292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00007.png
+  artifactKey: Guid(0659f1e2fd58fcb4a84ef91ca294e165) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00007.png using Guid(0659f1e2fd58fcb4a84ef91ca294e165) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'f21e4bc8f000040849c4b4441764ae5c') in 0.1316178 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00019.png
+  artifactKey: Guid(187a3cca86bbaaa44894260d0d165f24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00019.png using Guid(187a3cca86bbaaa44894260d0d165f24) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '2e21462cf789af37c29877d502f8deb1') in 0.0663831 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00015.png
+  artifactKey: Guid(374c04db205dd194b9f384425ca405db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00015.png using Guid(374c04db205dd194b9f384425ca405db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'ec7b52200a90f2a5486c3be4435df1ab') in 0.0167408 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00029.png
+  artifactKey: Guid(a7c7e7f379f5f7e49a3df660c4173095) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00029.png using Guid(a7c7e7f379f5f7e49a3df660c4173095) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'bdde338bcfbb46a420b755407d993ce0') in 0.0151613 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00025.png
+  artifactKey: Guid(7b53424d6d7d9ed4297993bc395622b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00025.png using Guid(7b53424d6d7d9ed4297993bc395622b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '2b4f8b5498a2a615482088b4c32a653b') in 0.0130325 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00026.png
+  artifactKey: Guid(71aae2adbc7a2034eb3fa077462f0805) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00026.png using Guid(71aae2adbc7a2034eb3fa077462f0805) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '72e4ee856ab517b854024b52d8e17e25') in 0.0174078 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00012.png
+  artifactKey: Guid(f3096e832d2692f43bf96c1da88394a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00012.png using Guid(f3096e832d2692f43bf96c1da88394a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '88bbbeb7295400b74635f1654163561f') in 0.0180425 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00024.png
+  artifactKey: Guid(049e15f629537e147aeb8c8dbeb77f50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00024.png using Guid(049e15f629537e147aeb8c8dbeb77f50) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '207d089f358faabaf01bdca9a4d189bb') in 0.0168465 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00022.png
+  artifactKey: Guid(ba463a7d634f75c4c8f6f58bd0cc6e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00022.png using Guid(ba463a7d634f75c4c8f6f58bd0cc6e04) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '6a0f3d31499d2cfcf9dc639cd8429141') in 0.0152505 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00004.png
+  artifactKey: Guid(77ec1ea61b6441d4ca4cdfe4b0eb53c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00004.png using Guid(77ec1ea61b6441d4ca4cdfe4b0eb53c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'abe3498e7e146072485cc19ae651b113') in 0.0147737 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00028.png
+  artifactKey: Guid(604c6eafa164d474ebff65203e564e25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00028.png using Guid(604c6eafa164d474ebff65203e564e25) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '63f1ce4bdced3ff4055ee3b2c2615f1b') in 0.0151413 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00002.png
+  artifactKey: Guid(c4c307e68753d1a4f9c38296b58e2344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00002.png using Guid(c4c307e68753d1a4f9c38296b58e2344) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '7d84e03f9cfae2fefeff9932556ae4c7') in 0.0138999 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00005.png
+  artifactKey: Guid(3540fa79ce70dfb4c845c37ae3fc2fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00005.png using Guid(3540fa79ce70dfb4c845c37ae3fc2fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '2b2b52b73c452bad168ee6e9b0ae3c6d') in 0.0142659 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00014.png
+  artifactKey: Guid(75223a90ca608fa49a977d190e02548a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00014.png using Guid(75223a90ca608fa49a977d190e02548a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '486d61025a4e2f60cc890c36bb47dde9') in 0.0143815 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00020.png
+  artifactKey: Guid(64e29b37d819b2944957f29d2efb01d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Tileset/The Forgotten Depths/PlantsAnimated/Vegetation/Grass3/Comp 1_00020.png using Guid(64e29b37d819b2944957f29d2efb01d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '2a5a632847650da800196be3b61d32ab') in 0.0153686 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 371.925093 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0001.png
+  artifactKey: Guid(671e04b2c4750204f87bff5c8f686565) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0001.png using Guid(671e04b2c4750204f87bff5c8f686565) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '52147c21b59e1de69244f258cb2da920') in 0.0226581 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0021.png
+  artifactKey: Guid(15247aa09cc1c354d8202c3c312572a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0021.png using Guid(15247aa09cc1c354d8202c3c312572a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '46f1f92665224372574dce02e3c63b09') in 0.0198611 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0049.png
+  artifactKey: Guid(2abac2d3c9fc5df4cbd6265b8f75c47e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0049.png using Guid(2abac2d3c9fc5df4cbd6265b8f75c47e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'd6dbf27dec91164de89e06f3289a31a0') in 0.0171749 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0007.png
+  artifactKey: Guid(cf842cf3f8ceade419d809e1b21f3d7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0007.png using Guid(cf842cf3f8ceade419d809e1b21f3d7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '6af291c6a72fff926a23c139bbbf57d3') in 0.0168327 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0035.png
+  artifactKey: Guid(eeff9db6ea124fd46a009e135948a0ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0035.png using Guid(eeff9db6ea124fd46a009e135948a0ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '70eb7d830a6ae476e396747e0542c105') in 0.0163419 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0013.png
+  artifactKey: Guid(adee9d80562232645a903e9ba1273344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0013.png using Guid(adee9d80562232645a903e9ba1273344) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '59204301f7ef8a8b207bee7323d7f6fc') in 0.0176255 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0054.png
+  artifactKey: Guid(a6db6d562ed267d47a8ca40d2ea03d4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0054.png using Guid(a6db6d562ed267d47a8ca40d2ea03d4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '4d2c6fc607a85c89e505ce5d8a5b0c11') in 0.0171852 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0029.png
+  artifactKey: Guid(7964b672a29d1b24f9057923264c63af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0029.png using Guid(7964b672a29d1b24f9057923264c63af) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'd65a8cb965b1712007c8a87d159ec294') in 0.0187522 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0052.png
+  artifactKey: Guid(dbfdddee20ed8394c82efa948547cd8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0052.png using Guid(dbfdddee20ed8394c82efa948547cd8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '9a149f772af0e72bd5a1381f68c20c9a') in 0.0172999 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0042.png
+  artifactKey: Guid(ca03cf9bcc719ba499e09af99b461f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0042.png using Guid(ca03cf9bcc719ba499e09af99b461f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '344ca0245127e0a6fdaff61966194f6c') in 0.0197582 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0015.png
+  artifactKey: Guid(0c85cb27029bc9346ba64413ad9caa56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0015.png using Guid(0c85cb27029bc9346ba64413ad9caa56) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'b6f5fbe9cb3459ac573517cb6e3b8298') in 0.018274 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0003.png
+  artifactKey: Guid(409d4a67e42ed7e46b8beb9a920bd905) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0003.png using Guid(409d4a67e42ed7e46b8beb9a920bd905) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'e67708ec5f5b7fd4737c8f7d384e21e0') in 0.0182327 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0056.png
+  artifactKey: Guid(fc7c9f8bd7a5fb24eb54922c56fb183b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0056.png using Guid(fc7c9f8bd7a5fb24eb54922c56fb183b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'b6e37ff7600676b2d1ab0b90c2b50eba') in 0.0187191 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0016.png
+  artifactKey: Guid(e6f6215e9dfd94240b671f784d0bba6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0016.png using Guid(e6f6215e9dfd94240b671f784d0bba6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '797c8238aff5992afb7ca716fc067810') in 0.0169223 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0008.png
+  artifactKey: Guid(be7ac0b759cf29542b02443cc123ad0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0008.png using Guid(be7ac0b759cf29542b02443cc123ad0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'daced4b3f41faf8b7e33aca41b5a8518') in 0.0197518 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0045.png
+  artifactKey: Guid(8d54f3a22313a934281515f4da4151bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0045.png using Guid(8d54f3a22313a934281515f4da4151bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '0fd373233574beb77aee69415dd13c93') in 0.0183526 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0031.png
+  artifactKey: Guid(fc82d04fb5bbf894c8e710628de3831d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0031.png using Guid(fc82d04fb5bbf894c8e710628de3831d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '5cc45f8c7321f8aa6b3eef90c6ab7e28') in 0.016286 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0022.png
+  artifactKey: Guid(0d6fdca4a9c938b4ab61d750526ce4d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0022.png using Guid(0d6fdca4a9c938b4ab61d750526ce4d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'cd5b384ddaf088b672fc21b9acc8a006') in 0.0168463 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0024.png
+  artifactKey: Guid(2c28aa4b9ec86a74ca6470a958c68f39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0024.png using Guid(2c28aa4b9ec86a74ca6470a958c68f39) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '89bdfb551ac57cbdde59c426bae7fde8') in 0.0172164 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0014.png
+  artifactKey: Guid(aa16891403cfcda418a05ed428065d01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0014.png using Guid(aa16891403cfcda418a05ed428065d01) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '8c14617ac64b0a4f798cf34c64ae4557') in 0.0170664 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0038.png
+  artifactKey: Guid(ddd0c2bb719fa0948b370d625383b37c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0038.png using Guid(ddd0c2bb719fa0948b370d625383b37c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '2ee506318312ea0e967dc9ec409299c6') in 0.0178174 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0010.png
+  artifactKey: Guid(164bdb6d73bedc146b9465814279cb95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0010.png using Guid(164bdb6d73bedc146b9465814279cb95) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '8dbd1bce9a4154bb6bb8c607d733de64') in 0.0195637 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0047.png
+  artifactKey: Guid(0f84051957abbd849888237a660a057e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0047.png using Guid(0f84051957abbd849888237a660a057e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '3f6b7ba5c54aa82cd22ed2245d809558') in 0.0169328 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0018.png
+  artifactKey: Guid(31f7ffd34233bf749b2bbda1e9fd2118) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0018.png using Guid(31f7ffd34233bf749b2bbda1e9fd2118) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'ac2b78ee99eed2360ef006b5f02f2869') in 0.0194498 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0055.png
+  artifactKey: Guid(8b59b76283090b84b9d7d752d642bc86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0055.png using Guid(8b59b76283090b84b9d7d752d642bc86) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '39de89174036175c66264576b93e6ac2') in 0.0166236 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0033.png
+  artifactKey: Guid(ae9d19b45a9e98345a26daf20c9470ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0033.png using Guid(ae9d19b45a9e98345a26daf20c9470ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: 'b968ea6475101cf465695b9a212e5cb4') in 0.0169088 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0040.png
+  artifactKey: Guid(14baa81086fce424daf1f458a19c0178) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0040.png using Guid(14baa81086fce424daf1f458a19c0178) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '4df862267d826abe0fa48b661a49cfcd') in 0.0170938 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0019.png
+  artifactKey: Guid(9e1a554a560532d4d9df535780df8c46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0019.png using Guid(9e1a554a560532d4d9df535780df8c46) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '29edc1305f8afe21e5670059b2e1eb0b') in 0.0210388 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Sprites/Health/Heal/magic-orb_02loop0043.png
+  artifactKey: Guid(16e589b11fa618d47b5d77563a5951b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Health/Heal/magic-orb_02loop0043.png using Guid(16e589b11fa618d47b5d77563a5951b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 6 workers.
+ -> (artifact id: '8689558377f3d2ff7709b0305d9be273') in 0.019906 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
