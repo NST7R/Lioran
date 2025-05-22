@@ -9,3 +9,9 @@ MemoryCaptures/
 *.sln
 *.user
 .DS_Store
+echo "[Ll]ibrary/" >> .gitignore
+echo "[Tt]emp/" >> .gitignore
+echo "[Oo]bj/" >> .gitignore
+echo "*.csproj" >> .gitignore
+echo "*.sln" >> .gitignore
+echo "*.user" >> .gitignore
