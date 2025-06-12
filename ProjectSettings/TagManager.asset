@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Lioran
+  - Trap
   layers:
   - Default
   - TransparentFX
