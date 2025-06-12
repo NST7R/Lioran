@@ -1,49 +1,52 @@
-/// <summary>
-/// ToxicMushroomTrap2D
-/// Déclenche un nuage toxique et inflige des dégâts tant que le joueur reste dans la zone.
-/// </summary>
-
 using UnityEngine;
+using System.Collections;
 
-[RequireComponent(typeof(Collider2D))]
-public class ToxicMushroomTrap2D : MonoBehaviour
+/// <summary>
+/// Inflige des dégâts continus tant que le joueur reste dans le champ toxique.
+/// Peut déclencher une particule de poison.
+/// </summary>
+public class ToxicMushroomTrap : MonoBehaviour
 {
-    [SerializeField] private int damagePerSecond = 5;
-    [SerializeField] private float damageInterval = 1f;
-    [SerializeField] private ParticleSystem gasEffect;
+    [SerializeField] private int damagePerTick = 1;           // Dégâts infligés à chaque tick
+    [SerializeField] private float tickRate = 2f;           // Intervalle entre deux dégâts
+    [SerializeField] private ParticleSystem poisonFX;         // Effet visuel du gaz toxique (optionnel)
 
-    private bool isPlayerInside = false;
-    private float timer = 0f;
+    private Coroutine damageCoroutine;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player")) return;
-        isPlayerInside = true;
-        timer = 0f;
+        if (collision.CompareTag("Lioran"))
+        {
+            if (poisonFX != null && !poisonFX.isPlaying)
+                poisonFX.Play();
 
-        gasEffect?.Play();
+            LioranHealth health = collision.GetComponent<LioranHealth>();
+            if (health != null)
+                damageCoroutine = StartCoroutine(DamageOverTime(health));
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) isPlayerInside = false;
+        if (collision.CompareTag("Lioran"))
+        {
+            if (damageCoroutine != null)
+            {
+                StopCoroutine(damageCoroutine);
+                damageCoroutine = null;
+            }
+
+            if (poisonFX != null && poisonFX.isPlaying)
+                poisonFX.Stop();
+        }
     }
 
-    private void Update()
+    private IEnumerator DamageOverTime(LioranHealth health)
     {
-        if (!isPlayerInside) return;
-
-        timer += Time.deltaTime;
-        if (timer >= damageInterval)
+        while (health != null)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                var health = player.GetComponent<LioranHealth>();
-                if (health != null)
-                    health.TakeDamage(damagePerSecond);
-            }
-            timer = 0f;
+            health.TakeDamage(damagePerTick);
+            yield return new WaitForSeconds(tickRate);
         }
     }
 }

@@ -4,42 +4,37 @@
 /// </summary>
 
 using UnityEngine;
+using System.Collections;
 
 public class DamageZone2D : MonoBehaviour
 {
-    [SerializeField] private int damagePerSecond = 5;
-    [SerializeField] private float damageInterval = 1f;
+    [SerializeField] private int damagePerTick = 1;
+    [SerializeField] private float tickRate = 1.5f;
 
-    private float timer = 0f;
-    private bool playerInside = false;
+    private Coroutine damageCoroutine;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-            playerInside = true;
+        if (collision.CompareTag("Lioran"))
+        {
+            damageCoroutine = StartCoroutine(DamageOverTime(collision.GetComponent<LioranHealth>()));
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-            playerInside = false;
+        if (collision.CompareTag("Lioran") && damageCoroutine != null)
+        {
+            StopCoroutine(damageCoroutine);
+        }
     }
 
-    private void Update()
+    private IEnumerator DamageOverTime(LioranHealth health)
     {
-        if (!playerInside) return;
-
-        timer += Time.deltaTime;
-        if (timer >= damageInterval)
+        while (health != null)
         {
-            var player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                var health = player.GetComponent<LioranHealth>();
-                if (health != null)
-                    health.TakeDamage(damagePerSecond);
-            }
-            timer = 0f;
+            health.TakeDamage(damagePerTick);
+            yield return new WaitForSeconds(tickRate);
         }
     }
 }

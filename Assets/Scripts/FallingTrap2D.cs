@@ -6,23 +6,36 @@
 using UnityEngine;
 
 public class FallingTrap2D : MonoBehaviour
-{
-    [SerializeField] private Rigidbody2D fallingObject;
-    [SerializeField] private float delay = 0.5f;
-
+{[SerializeField] private int damage = 2;
+    [SerializeField] private float dropDelay = 0.2f;
     private bool triggered = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (triggered || !collision.CompareTag("Player")) return;
+        if (triggered) return;
 
-        triggered = true;
-        Invoke(nameof(ActivateFall), delay);
+        if (collision.CompareTag("Lioran"))
+        {
+            triggered = true;
+            Invoke(nameof(EnableGravity), dropDelay);
+        }
     }
 
-    private void ActivateFall()
+    private void EnableGravity()
     {
-        if (fallingObject != null)
-            fallingObject.bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<Rigidbody2D>().gravityScale = 1f;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Lioran"))
+        {
+            LioranHealth health = collision.collider.GetComponent<LioranHealth>();
+            if (health != null)
+                health.TakeDamage(damage);
+        }
+
+        // Optionnel : détruire après l'impact
+        Destroy(gameObject, 1f);
     }
 }

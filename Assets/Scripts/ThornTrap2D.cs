@@ -7,15 +7,17 @@ using UnityEngine;
 
 public class ThornTrap2D : MonoBehaviour
 {
-    [SerializeField] private int damage = 15;
+    [SerializeField] private int damage = 1;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Lioran"))
         {
-            var health = collision.GetComponent<LioranHealth>();
+            LioranHealth health = collision.GetComponent<LioranHealth>();
             if (health != null)
+            {
                 health.TakeDamage(damage);
+            }
         }
     }
 }
