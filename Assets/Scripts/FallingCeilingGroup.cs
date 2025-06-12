@@ -21,11 +21,6 @@ public class FallingCeilingGroup : MonoBehaviour
     [SerializeField] private GameObject areaCollider;
     private bool hasTriggered = false;
 
-    private void Awake()
-    {
-        //areaCollider = GetComponent<BoxCollider2D>();
-    }
-
     /// <summary>
     /// Déclenche la création et la chute des objets en fonction du pattern choisi.
     /// </summary>
@@ -33,35 +28,6 @@ public class FallingCeilingGroup : MonoBehaviour
     {
         if (hasTriggered) return;
         hasTriggered = true;
-
-        SpawnObjects();
-
-        switch (fallPattern)
-        {
-            case FallPattern.LeftToRight:
-                StartCoroutine(FallInOrder(0, 1));
-                break;
-            case FallPattern.RightToLeft:
-                StartCoroutine(FallInOrder(spawnedObjects.Count - 1, -1));
-                break;
-            case FallPattern.CenterOut:
-                StartCoroutine(FallFromCenter());
-                break;
-            case FallPattern.Adaptive:
-                bool playerOnRight = player.position.x > transform.position.x;
-                StartCoroutine(playerOnRight
-                    ? FallInOrder(spawnedObjects.Count - 1, -1)
-                    : FallInOrder(0, 1));
-                break;
-        }
-    }
-
-    /// <summary>
-    /// Instancie dynamiquement les objets en fonction de la largeur du collider.
-    /// </summary>
-    private void SpawnObjects()
-    {
-        spawnedObjects.Clear();
 
         float width = areaCollider.transform.localScale.x * transform.localScale.x;
         int objectCount = Mathf.FloorToInt(width / spacing);
@@ -72,25 +38,63 @@ public class FallingCeilingGroup : MonoBehaviour
             return;
         }
 
+        StartCoroutine(SpawnAndFallCoroutine(objectCount, player));
+    }
+
+    /// <summary>
+    /// Coroutine principale de génération et d’activation différée.
+    /// </summary>
+    private IEnumerator SpawnAndFallCoroutine(int objectCount, Transform player)
+    {
+        spawnedObjects.Clear();
+
+        float width = areaCollider.transform.localScale.x * transform.localScale.x;
         Vector3 leftEdge = transform.position - new Vector3(width / 2f, 0f, 0f);
 
         for (int i = 0; i < objectCount; i++)
         {
             Vector3 spawnPos = leftEdge + new Vector3(i * spacing, 0f, 0f);
             GameObject clone = Instantiate(fallingObjectPrefab, spawnPos, Quaternion.identity);
+            clone.SetActive(false);
             spawnedObjects.Add(clone);
+            Debug.LogWarning("objet créé"+i+1);
+        }
+
+        yield return new WaitForEndOfFrame(); // Assure l’instanciation complète avant activation
+
+        switch (fallPattern)
+        {
+            case FallPattern.LeftToRight:
+                yield return StartCoroutine(FallInOrder(0, 1));
+                break;
+            case FallPattern.RightToLeft:
+                yield return StartCoroutine(FallInOrder(spawnedObjects.Count - 1, -1));
+                break;
+            case FallPattern.CenterOut:
+                yield return StartCoroutine(FallFromCenter());
+                break;
+            case FallPattern.Adaptive:
+                bool playerOnRight = player.position.x > transform.position.x;
+                yield return StartCoroutine(playerOnRight
+                    ? FallInOrder(spawnedObjects.Count - 1, -1)
+                    : FallInOrder(0, 1));
+                break;
         }
     }
 
     private IEnumerator FallInOrder(int startIndex, int step)
     {
-        for (int i = 0; i < spawnedObjects.Count; i++)
+        int count = spawnedObjects.Count;
+
+        for (int i = 0; i < count; i++)
         {
-            int index = startIndex + i * step;
-            if (index >= 0 && index < spawnedObjects.Count)
+            int index = startIndex + (i * step);
+            if (index >= 0 && index < count)
             {
                 ActivateObject(index);
+                Debug.LogWarning("objet activé"+i+1);
                 yield return new WaitForSeconds(fallDelay);
+                Debug.LogWarning("objet après délais"+fallDelay);
             }
         }
     }
@@ -126,10 +130,16 @@ public class FallingCeilingGroup : MonoBehaviour
         if (index >= 0 && index < spawnedObjects.Count)
         {
             GameObject obj = spawnedObjects[index];
-            obj.SetActive(true);
-            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-            if (rb != null)
-                rb.bodyType = RigidbodyType2D.Dynamic;
+            if (!obj.activeSelf)
+            {
+                obj.SetActive(true);
+                Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    rb.simulated = true;
+                }
+            }
         }
     }
 }
