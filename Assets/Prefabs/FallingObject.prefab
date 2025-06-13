@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8386501991762247502}
   - component: {fileID: 6401214347882823993}
   - component: {fileID: 2432358780352367908}
-  - component: {fileID: 169464042376723275}
+  - component: {fileID: 3366234367894793786}
   m_Layer: 0
   m_Name: FallingObject
   m_TagString: Trap
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 6041836287513395125}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0415, y: -0.0995, z: 0}
+  m_LocalScale: {x: 1.0564, y: 0.9426, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1792345365
-  m_SortingLayer: 5
+  m_SortingLayerID: -1732581079
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 8417261638804700597, guid: 657af0454d4c7884c850059e33a1677f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -130,9 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  destroyDelay: 0.5
---- !u!61 &169464042376723275
-BoxCollider2D:
+  destroyDelay: 0.01
+--- !u!60 &3366234367894793786
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -165,7 +165,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.036038175, y: 0.003232479}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -175,5 +175,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.70907784, y: 3.541614}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.051862873, y: -1.8018402}
+      - {x: 0.42276934, y: -0.41984314}
+      - {x: -0.37161934, y: -0.41783443}
+  m_UseDelaunayMesh: 0
