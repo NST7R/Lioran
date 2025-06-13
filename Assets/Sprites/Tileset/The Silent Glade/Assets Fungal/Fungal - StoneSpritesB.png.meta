@@ -165,6 +165,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -421,7 +434,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fungal - StoneSpritesB_0: -8843774048341975162
+      Fungal - StoneSpritesB_1: 2202139491029976646
+      Fungal - StoneSpritesB_10: -5570769927511117312
+      Fungal - StoneSpritesB_2: 8203882118492441266
+      Fungal - StoneSpritesB_3: 738583214379198598
+      Fungal - StoneSpritesB_4: -4504665811821161040
+      Fungal - StoneSpritesB_5: -414595475525745912
+      Fungal - StoneSpritesB_6: 464668388149179936
+      Fungal - StoneSpritesB_7: 8658219025053015275
+      Fungal - StoneSpritesB_8: -5525563583323517164
+      Fungal - StoneSpritesB_9: -5321154162212056502
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
