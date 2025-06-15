@@ -6,17 +6,29 @@ using UnityEngine;
 /// </summary>
 public class PuzzlePiecePickup : MonoBehaviour
 {
-    public string pieceID; // Identifiant de la pièce (doit correspondre à ExpectedPieceID)
-    public Sprite pieceSprite; // Sprite de la pièce à afficher dans le slot
+    [Tooltip("Identifiant unique de la pièce (doit correspondre au slot ciblé)")]
+    public string pieceID;
+
+    [Tooltip("Sprite à afficher une fois la pièce placée dans le puzzle")]
+    public Sprite pieceSprite;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Lioran")) // Remplace par le tag de ton joueur
+        if (other.CompareTag("Lioran")) // Assure-toi que le joueur a bien ce tag
         {
-            PuzzlePieceManager ppm = FindObjectOfType<PuzzlePieceManager>();
-            ppm.CollectPiece(pieceID, pieceSprite);
+            // Utiliser la méthode recommandée par Unity 2023+
+            PuzzlePieceManager ppm = Object.FindFirstObjectByType<PuzzlePieceManager>();
 
-            Destroy(gameObject); // Supprime la pièce de la scène après collecte
+            if (ppm != null)
+            {
+                ppm.CollectPiece(pieceID, pieceSprite);
+            }
+            else
+            {
+                Debug.LogWarning("Aucun PuzzlePieceManager trouvé dans la scène.");
+            }
+
+            Destroy(gameObject); // Détruit la pièce une fois ramassée
         }
     }
 }
