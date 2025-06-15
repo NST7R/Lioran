@@ -1,34 +1,20 @@
 using UnityEngine;
 
 /// <summary>
-/// Déclencheur de ramassage de pièce.
-/// Appelle PuzzlePieceManager pour placer la pièce automatiquement.
+/// Rattaché à une pièce présente dans le monde. 
+/// Déclenche l’événement global quand le joueur entre en contact avec l’objet.
 /// </summary>
 public class PuzzlePiecePickup : MonoBehaviour
 {
-    [Tooltip("Identifiant unique de la pièce (doit correspondre au slot ciblé)")]
-    public string pieceID;
-
-    [Tooltip("Sprite à afficher une fois la pièce placée dans le puzzle")]
-    public Sprite pieceSprite;
+    [SerializeField] private PuzzlePieceData pieceData; // Données de la pièce (ScriptableObject)
+    [SerializeField] private PuzzlePieceCollectedEvent onPieceCollectedEvent; // Événement à déclencher
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Lioran")) // Assure-toi que le joueur a bien ce tag
+        if (other.CompareTag("Lioran")) // Le joueur doit avoir ce tag
         {
-            // Utiliser la méthode recommandée par Unity 2023+
-            PuzzlePieceManager ppm = Object.FindFirstObjectByType<PuzzlePieceManager>();
-
-            if (ppm != null)
-            {
-                ppm.CollectPiece(pieceID, pieceSprite);
-            }
-            else
-            {
-                Debug.LogWarning("Aucun PuzzlePieceManager trouvé dans la scène.");
-            }
-
-            Destroy(gameObject); // Détruit la pièce une fois ramassée
+            onPieceCollectedEvent.Raise(pieceData);
+            Destroy(gameObject); // Supprime la pièce du monde
         }
     }
 }

@@ -1,44 +1,42 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
-/// Contient tous les emplacements de pièces et vérifie la complétion du puzzle.
+/// Gère la plateforme de puzzle.
+/// Place automatiquement les pièces collectées dans les bons slots.
 /// </summary>
 public class PuzzlePlatform : MonoBehaviour
 {
-    [SerializeField] private PuzzleSlot[] slots; // Emplacements des pièces sur la plateforme
-    [SerializeField] private GameObject triggerToActivate; // Événement (porte, effet) déclenché à la complétion
+    [SerializeField] private PuzzlePieceCollectedEvent onPieceCollectedEvent;
+    [SerializeField] private List<PuzzleSlot> slots; // Tous les slots du puzzle
 
-    /// <summary>
-    /// Place une pièce dans le slot correspondant à son ID.
-    /// </summary>
-    public void PlacePiece(string pieceID, Sprite sprite)
+    private HashSet<string> collectedPieceIDs = new();
+
+    private void OnEnable()
     {
-        foreach (var slot in slots)
-        {
-            if (slot.ExpectedPieceID == pieceID && !slot.IsFilled)
-            {
-                slot.Place(sprite); // Place la pièce visuellement
-                break;
-            }
-        }
+        onPieceCollectedEvent.OnPieceCollected += HandlePieceCollected;
+    }
 
-        // Vérifie si toutes les pièces ont été placées
-        if (IsPuzzleComplete() && triggerToActivate != null)
-        {
-            triggerToActivate.SetActive(true); // Active l’événement lié au puzzle
-        }
+    private void OnDisable()
+    {
+        onPieceCollectedEvent.OnPieceCollected -= HandlePieceCollected;
     }
 
     /// <summary>
-    /// Vérifie si tous les slots sont remplis.
+    /// Appelé automatiquement quand une pièce est collectée.
     /// </summary>
-    private bool IsPuzzleComplete()
+    private void HandlePieceCollected(PuzzlePieceData data)
     {
+        if (collectedPieceIDs.Contains(data.id)) return; // Évite les doublons
+        collectedPieceIDs.Add(data.id);
+
         foreach (var slot in slots)
         {
-            if (!slot.IsFilled)
-                return false;
+            if (slot.Matches(data.id))
+            {
+                slot.PlacePiece(data);
+                break;
+            }
         }
-        return true;
     }
 }

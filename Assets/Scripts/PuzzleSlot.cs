@@ -1,67 +1,32 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
-/// Représente un emplacement de pièce sur la plateforme.
-/// Gère son état, l’effet visuel et l’apparition de la pièce.
+/// Slot dans lequel une pièce est automatiquement placée si l’ID correspond.
 /// </summary>
 public class PuzzleSlot : MonoBehaviour
 {
-    [SerializeField] private string expectedPieceID; // ID de la pièce attendue
-    [SerializeField] private SpriteRenderer motifRenderer; // Sprite affiché à la pose de la pièce
-    [SerializeField] private GameObject glowEffect; // Effet lumineux pour l’emplacement
+    [SerializeField] private string expectedID;       // ID attendu
+    [SerializeField] private Image visualImage;       // Image affichant le sprite
+    [SerializeField] private GameObject glowEffect;   // Feedback visuel optionnel
 
-    public string ExpectedPieceID => expectedPieceID;
-    public bool IsFilled { get; private set; } = false;
-
-    private void Awake()
+    /// <summary>
+    /// Vérifie si cette slot accepte la pièce donnée.
+    /// </summary>
+    public bool Matches(string id)
     {
-        motifRenderer.enabled = false; // Masque l'emplacement au début
-        if (glowEffect != null) glowEffect.SetActive(false);
+        return id == expectedID;
     }
 
     /// <summary>
-    /// Active l’emplacement, affiche la pièce et joue une animation.
+    /// Place visuellement la pièce dans le slot.
     /// </summary>
-    public void Place(Sprite sprite)
+    public void PlacePiece(PuzzlePieceData piece)
     {
-        motifRenderer.sprite = sprite;
-        motifRenderer.enabled = true;
+        visualImage.sprite = piece.sprite;
+        visualImage.enabled = true;
 
-        if (glowEffect != null) glowEffect.SetActive(true);
-
-        // Lance l'effet visuel de mise en valeur
-        StartCoroutine(ScaleEffect(motifRenderer.transform));
-
-        IsFilled = true;
-    }
-
-    /// <summary>
-    /// Effet d'animation simple (zoom in/out rapide)
-    /// </summary>
-    private System.Collections.IEnumerator ScaleEffect(Transform target)
-    {
-        Vector3 originalScale = target.localScale;
-        Vector3 enlargedScale = originalScale * 1.2f;
-        float duration = 0.15f;
-        float t = 0f;
-
-        // Zoom in
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            target.localScale = Vector3.Lerp(originalScale, enlargedScale, t / duration);
-            yield return null;
-        }
-
-        // Zoom out
-        t = 0f;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            target.localScale = Vector3.Lerp(enlargedScale, originalScale, t / duration);
-            yield return null;
-        }
-
-        target.localScale = originalScale;
+        if (glowEffect != null)
+            glowEffect.SetActive(true);
     }
 }
