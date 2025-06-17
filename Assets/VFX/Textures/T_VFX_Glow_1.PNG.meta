@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      T_VFX_Glow_1_0: -4345500817665276783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
