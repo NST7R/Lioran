@@ -14739,7 +14739,7 @@ GameObject:
   - component: {fileID: 9109809374449255364}
   - component: {fileID: 7090799724185492155}
   m_Layer: 0
-  m_Name: Cursed_Leaf
+  m_Name: VFX_Cursed_Leaf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

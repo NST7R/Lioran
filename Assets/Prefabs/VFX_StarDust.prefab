@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2282438384830233658}
   - component: {fileID: 2282438384830233659}
   m_Layer: 7
-  m_Name: StarDust
+  m_Name: VFX_StarDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
