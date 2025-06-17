@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Leaf_Constellation_0: -655595948230923684
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
