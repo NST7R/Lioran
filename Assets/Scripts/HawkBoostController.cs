@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using System.Collections;
 //using Cinemachine;
 
@@ -87,4 +87,4 @@ public class HawkBoostController : MonoBehaviour
     {
         hasDashed = false;
     }
-}
+}*/
