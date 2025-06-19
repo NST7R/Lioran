@@ -24,50 +24,46 @@ public class LioranMovement : MonoBehaviour
         originalScale = transform.localScale;
     }
 
-    void Update()
-    {   
-        // Horizontal Movement
-        float horizontalInput = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+   void Update()
+    {
+    float horizontalInput = Input.GetAxis("Horizontal");
+    body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-        // Switch directions using initial scale
-        if (horizontalInput > 0.01f)
-        {
-            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
-        }
-        else if (horizontalInput < -0.01f)
-        {
-            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
-        }
+    // Flip sprite
+    if (horizontalInput > 0.01f)
+        transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+    else if (horizontalInput < -0.01f)
+        transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
 
-        // Jump logic
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
-        {
-            Jump();
-        }
+    // Jump input
+    if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
+    {
+        Jump();
+    }
 
-        // Reset jump count when grounded
-        if (onGround())
-        {
-            jumpCount = 0;
-        }
+    // Reset jump count
+    if (onGround())
+    {
+        jumpCount = 0;
+    }
 
-        // Animation
-        animation.SetFloat("yVelocity", (body.velocity.y));
-        animation.SetBool("Walk", horizontalInput != 0);
-        animation.SetBool("onGround", onGround());
+    // Update animator
+    animation.SetFloat("yVelocity", body.velocity.y);
+    animation.SetBool("onGround", onGround());
+    animation.SetBool("Walk", horizontalInput != 0);
+    Debug.Log(onGround());
     }
 
     private void Jump()
     {
-        body.velocity = new Vector2(body.velocity.x, jumpForce);
-        animation.SetTrigger("Jump");
-        jumpCount++;
+    body.velocity = new Vector2(body.velocity.x, jumpForce);
+    animation.SetTrigger("Jump");
+    jumpCount++;
     }
 
     private bool onGround()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.2f, groundLayer);
         return raycastHit.collider != null;
     }
 }
