@@ -53,6 +53,7 @@ public class LioranMovement : MonoBehaviour
         }
 
         // Animation
+        animation.SetFloat("yVelocity", (body.velocity.y));
         animation.SetBool("Walk", horizontalInput != 0);
         animation.SetBool("onGround", onGround());
     }
