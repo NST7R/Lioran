@@ -38786,6 +38786,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lioran
       objectReference: {fileID: 0}
+    - target: {fileID: 6178157436242385573, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9183948
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178157436242385573, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
+      propertyPath: m_Size.y
+      value: 3.5319402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178157436242385573, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.5648073
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178157436242385573, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.4397157
+      objectReference: {fileID: 0}
     - target: {fileID: 8082903656169398948, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.359962
