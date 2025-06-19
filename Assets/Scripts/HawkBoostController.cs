@@ -1,68 +1,90 @@
 using UnityEngine;
 using System.Collections;
+//using Cinemachine;
+
 /// <summary>
-/// Contrôle l’activation de la capacité de boost faucon :
-/// Transition → impulsion verticale vers la plateforme → retour à la forme normale.
+/// Donne un boost directionnel en plein saut, façon battement d’ailes du faucon.
+/// Transforme temporairement le joueur et déclenche un dash horizontal.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class HawkBoostController : MonoBehaviour
-{
-    [Header("Références")]
-    [SerializeField] private HawkBoostTriggerDetector detector;
+{ [Header("Références")]
     [SerializeField] private Animator animator;
-    [SerializeField] private float ascendSpeed = 10f;
-    [SerializeField] private float stopDistance = 0.5f;
+    [SerializeField] private CinemachineVirtualCamera dashCam; // Caméra spéciale pour le boost
+    [SerializeField] private float dashSpeed = 15f;
+    [SerializeField] private float upwardForce = 3f;
+    [SerializeField] private float dashDuration = 0.5f;
 
     private Rigidbody2D rb;
-    private bool isBoosting = false;
-    private Transform targetPlatform;
+    private bool hasDashed = false;
+    private bool isDashing = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (dashCam != null)
+            dashCam.Priority = 0; // désactivée par défaut
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && detector.HasValidTarget() && !isBoosting)
+        if (Input.GetKeyDown(KeyCode.F) && !hasDashed && !isDashing && IsInAir())
         {
-            targetPlatform = detector.GetTargetPlatform();
-            if (targetPlatform != null)
-            {
-                StartCoroutine(DoHawkAscend());
-            }
+            StartCoroutine(DoGlideDash());
         }
     }
 
-    private IEnumerator DoHawkAscend()
+    /// <summary>
+    /// Lance le dash façon faucon.
+    /// </summary>
+    private IEnumerator DoGlideDash()
     {
-        isBoosting = true;
+        isDashing = true;
+        hasDashed = true;
 
-        // 1. Bloque mouvement joueur
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0f;
 
-        // 2. Joue animation de transformation
+        // Active caméra cinématique
+        if (dashCam != null)
+            dashCam.Priority = 10;
+
+        // Animation de transformation
         if (animator != null)
             animator.SetTrigger("ToHawk");
 
-        // 3. Monte jusqu’à la plateforme
-        while (Vector2.Distance(transform.position, targetPlatform.position) > stopDistance)
-        {
-            Vector2 direction = (targetPlatform.position - transform.position).normalized;
-            rb.velocity = direction * ascendSpeed;
-            yield return null;
-        }
+        // Applique le dash vers la direction du regard
+        float direction = transform.localScale.x > 0 ? 1f : -1f;
+        rb.velocity = new Vector2(direction * dashSpeed, upwardForce);
 
-        rb.velocity = Vector2.zero;
+        yield return new WaitForSeconds(dashDuration);
 
-        // 4. Animation de retour à la forme normale
+        // Reviens à l’état normal
+        rb.gravityScale = 1f;
+        rb.velocity = new Vector2(rb.velocity.x * 0.5f, rb.velocity.y); // amorti
+
         if (animator != null)
             animator.SetTrigger("ToDeer");
 
-        yield return new WaitForSeconds(0.2f); // petit délai de transition
+        if (dashCam != null)
+            dashCam.Priority = 0;
 
-        rb.gravityScale = 1f;
-        isBoosting = false;
+        isDashing = false;
+    }
+
+    /// <summary>
+    /// Utilisé pour empêcher l’activation au sol.
+    /// </summary>
+    private bool IsInAir()
+    {
+        return Mathf.Abs(rb.velocity.y) > 0.1f;
+    }
+
+    /// <summary>
+    /// Réinitialise le dash (à appeler quand on touche le sol).
+    /// </summary>
+    public void ResetDash()
+    {
+        hasDashed = false;
     }
 }
