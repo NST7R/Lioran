@@ -111,7 +111,7 @@ public class LioranHealth : MonoBehaviour
         UpdateHeartsUI();
 
         anim.ResetTrigger("Die");
-        anim.Play("Idle");
+        anim.Play("LioranIdle");
 
         foreach (Behaviour component in components)
             component.enabled = true;

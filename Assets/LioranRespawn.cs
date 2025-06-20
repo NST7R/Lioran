@@ -21,12 +21,10 @@ public class LioranRespawn : MonoBehaviour
         if (currentCheckpoint != null)
         {
             transform.position = currentCheckpoint.position;
-            Debug.Log("Respawned at checkpoint: " + currentCheckpoint.name);
         }
         else if (defaultSpawnPoint != null)
         {
             transform.position = defaultSpawnPoint.position;
-            Debug.Log("Respawned at default spawn point.");
         }
         else
         {
@@ -40,7 +38,6 @@ public class LioranRespawn : MonoBehaviour
         {
             currentCheckpoint = collision.transform;
             collision.GetComponent<Collider2D>().enabled = false;
-            Debug.Log("Checkpoint reached: " + currentCheckpoint.name);
         }
     }
 }
