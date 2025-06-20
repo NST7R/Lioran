@@ -132,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      T_VFX_Trail_3_0: 8278847737929124475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
