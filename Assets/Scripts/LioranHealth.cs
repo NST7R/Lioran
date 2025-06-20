@@ -10,7 +10,7 @@ public class LioranHealth : MonoBehaviour
     private bool dead;
 
     [Header("UI")]
-    public Transform HealthBar; // Drag "HealthBar" here in Inspector
+    public Transform HealthBar;
     private List<HeartUIScript> hearts;
 
     [Header("iFrames")]
@@ -18,6 +18,8 @@ public class LioranHealth : MonoBehaviour
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
 
+    [Header("Components")]
+    [SerializeField] private Behaviour[] components;
 
     private void Awake()
     {
@@ -25,7 +27,6 @@ public class LioranHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
 
-        // Collect all heart scripts from children of HealthBar
         hearts = new List<HeartUIScript>();
         foreach (Transform heart in HealthBar)
         {
@@ -35,7 +36,6 @@ public class LioranHealth : MonoBehaviour
             else
                 Debug.LogWarning($"Missing HeartUIScript on {heart.name}");
         }
-
     }
 
     public void TakeDamage(int amount)
@@ -45,7 +45,6 @@ public class LioranHealth : MonoBehaviour
         int previousHealth = currentHealth;
         currentHealth = Mathf.Max(currentHealth - amount, 0);
 
-        // Play lose animations
         for (int i = previousHealth - 1; i >= currentHealth; i--)
         {
             if (i < hearts.Count)
@@ -55,7 +54,7 @@ public class LioranHealth : MonoBehaviour
         if (currentHealth > 0)
         {
             anim.SetTrigger("Hurt");
-            StartCoroutine(Invunerability());
+            StartCoroutine(Invulnerability());
         }
         else
         {
@@ -70,7 +69,6 @@ public class LioranHealth : MonoBehaviour
         int previousHealth = currentHealth;
         currentHealth = Mathf.Min(currentHealth + amount, startingHealth);
 
-        // Play gain animations
         for (int i = previousHealth; i < currentHealth; i++)
         {
             if (i < hearts.Count)
@@ -85,21 +83,71 @@ public class LioranHealth : MonoBehaviour
         anim.SetTrigger("Die");
         GetComponent<LioranMovement>().enabled = false;
         dead = true;
+
+        StartCoroutine(RespawnAfterDelay());
     }
 
-    private IEnumerator Invunerability()
+    private IEnumerator RespawnAfterDelay()
     {
-        Physics2D.IgnoreLayerCollision(8,9, true);
+        yield return new WaitForSeconds(1.5f);
 
-        //invunerability duration
-        for(int i = 0; i < numberOfFlashes; i++)
+        LioranRespawn respawner = GetComponent<LioranRespawn>();
+        if (respawner != null)
+        {
+            respawner.Respawn();
+        }
+        else
+        {
+            Debug.LogWarning("LioranRespawn component not found on this GameObject.");
+        }
+    }
+
+    public void Respawn()
+    {
+        dead = false;
+
+        // Directly set health and update UI
+        currentHealth = startingHealth;
+        UpdateHeartsUI();
+
+        anim.ResetTrigger("Die");
+        anim.Play("Idle");
+
+        foreach (Behaviour component in components)
+            component.enabled = true;
+
+        var movement = GetComponent<LioranMovement>();
+        if (movement != null && !movement.enabled)
+        {
+            movement.enabled = true;
+        }
+
+        StartCoroutine(Invulnerability());
+    }
+
+    private void UpdateHeartsUI()
+    {
+        for (int i = 0; i < hearts.Count; i++)
+        {
+            if (i < currentHealth)
+                hearts[i].PlayGainAnimation();
+            else
+                hearts[i].PlayLoseAnimation();
+        }
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        Physics2D.IgnoreLayerCollision(8, 9, true);
+
+        for (int i = 0; i < numberOfFlashes; i++)
         {
             spriteRend.color = new Color(1, 0, 0, 0.5f);
-            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes));
+            yield return new WaitForSeconds(iFramesDuration / numberOfFlashes);
             spriteRend.color = Color.white;
-            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes));
+            yield return new WaitForSeconds(iFramesDuration / numberOfFlashes);
         }
-        Physics2D.IgnoreLayerCollision(8,9, false);
 
+        Physics2D.IgnoreLayerCollision(8, 9, false);
     }
 }
