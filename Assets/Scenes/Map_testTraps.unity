@@ -8788,11 +8788,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3234418418602173321, guid: 471835afd68902a49b4643cf339ccfd3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.6183577
+      value: 6.183577
       objectReference: {fileID: 0}
     - target: {fileID: 3234418418602173321, guid: 471835afd68902a49b4643cf339ccfd3, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0.0501856
+      value: 0.501856
       objectReference: {fileID: 0}
     - target: {fileID: 3572073495743711965, guid: 471835afd68902a49b4643cf339ccfd3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8836,16 +8836,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5565534077306649184, guid: 471835afd68902a49b4643cf339ccfd3, type: 3}
       propertyPath: m_fontSize
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5565534077306649184, guid: 471835afd68902a49b4643cf339ccfd3, type: 3}
       propertyPath: m_fontSizeBase
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5565534077306649184, guid: 471835afd68902a49b4643cf339ccfd3, type: 3}
       propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5683478305530010247, guid: 471835afd68902a49b4643cf339ccfd3, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1888957131}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32701,6 +32705,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!20 &1888957131 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1954110163394259480, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+  m_PrefabInstance: {fileID: 8544686041774080675}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1889648252
 GameObject:
   m_ObjectHideFlags: 0
