@@ -10,6 +10,8 @@ public class RuneManager : MonoBehaviour
     public Camera playerCamera;
     public Camera runeCamera;
     public float cameraShowTime = 2f;
+    public ScreenFader screenFader;
+
 
     void OnEnable()
     {
@@ -35,9 +37,14 @@ public class RuneManager : MonoBehaviour
         
         Transform slot = runeSlots[index];
 
+        yield return StartCoroutine(screenFader.FadeOut());
+
         // --- Switch Cameras ---
         playerCamera.enabled = false;
         runeCamera.enabled = true;
+
+        // --- Fade In ---
+        yield return StartCoroutine(screenFader.FadeIn());
 
         // Spawn the charging VFX at the slot
         GameObject vfx = Instantiate(chargingVFXPrefab, slot.position + new Vector3(0, 0, -5), Quaternion.identity);
@@ -45,15 +52,24 @@ public class RuneManager : MonoBehaviour
 
         // Wait before showing the rune
         yield return new WaitForSeconds(1.58f); // Adjust duration as needed
+
         // Spawn the actual rune
+
         GameObject rune = Instantiate(runePrefabs[index], slot);
         rune.transform.localPosition = Vector3.zero;
         rune.transform.localScale *= 0.5f;
         yield return new WaitForSeconds(cameraShowTime); // Adjust duration as needed
+
+        // --- Fade Out Again ---
+        yield return StartCoroutine(screenFader.FadeOut());
+
         Destroy(vfx, 3f);
         // --- Switch Back ---
         runeCamera.enabled = false;
         playerCamera.enabled = true;
+
+        // --- Final Fade In ---
+        yield return StartCoroutine(screenFader.FadeIn());
     }
 
 }

@@ -958,7 +958,8 @@ MonoBehaviour:
   chargingVFXPrefab: {fileID: 4380505005903839624, guid: ba5c4229722e8e646ba43a04c4b7c8fd, type: 3}
   playerCamera: {fileID: 0}
   runeCamera: {fileID: 9061761523482849392}
-  cameraShowTime: 2.5
+  cameraShowTime: 1
+  screenFader: {fileID: 0}
 --- !u!1 &6911302670719971445
 GameObject:
   m_ObjectHideFlags: 0

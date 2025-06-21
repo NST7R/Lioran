@@ -5032,7 +5032,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   pickupEffect: {fileID: 1326801674297863272}
-  runeIndex: 7
+  runeIndex: 0
 --- !u!58 &6667619755735049086
 CircleCollider2D:
   m_ObjectHideFlags: 0
