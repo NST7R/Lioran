@@ -1,37 +1,35 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 /// <summary>
-/// Gère un effet lumineux (ex: sphère de lumière) qui part du joueur et va vers la feuille.
-/// Une fois arrivé, il appelle une fonction de callback.
+/// Gère le VFX complet : orb lumineuse lancée depuis le joueur + apparition de l’esprit.
+/// Ce FX joue tout seul (pas de déplacement manuel). Une fois terminé, il exécute un callback.
 /// </summary>
 public class SpawnSpiritVFX : MonoBehaviour
 {
-    private Vector3 targetPosition; // Destination finale
-    private Action onImpact;        // Action à exécuter quand le FX atteint la cible
-    private float speed = 5f;       // Vitesse de déplacement du FX
+    private Action onCompleteCallback;
+
+    [Tooltip("Durée approximative du VFX avant la purification (doit correspondre à la timeline visuelle)")]
+    [SerializeField] private float vfxDuration = 2.5f;
 
     /// <summary>
-    /// Initialisation externe depuis CorruptedLeaf (destination + callback)
+    /// Initialisé depuis CorruptedLeaf.
     /// </summary>
-    public void Initialize(Vector3 target, Action onImpactCallback)
+    public void Initialize(Action callback)
     {
-        targetPosition = target;
-        onImpact = onImpactCallback;
+        onCompleteCallback = callback;
+        StartCoroutine(VFXSequence());
     }
 
-    private void Update()
+    /// <summary>
+    /// Coroutine pour attendre la fin du VFX puis déclencher le reste de la logique.
+    /// </summary>
+    private IEnumerator VFXSequence()
     {
-        if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
-        {
-            // Déplace le FX vers la position cible
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-        }
-        else
-        {
-            // Une fois arrivé : exécute la logique puis détruit le FX
-            onImpact?.Invoke();
-            Destroy(gameObject);
-        }
+        yield return new WaitForSeconds(vfxDuration);
+
+        onCompleteCallback?.Invoke();
+        Destroy(gameObject);
     }
 }
