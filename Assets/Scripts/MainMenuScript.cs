@@ -7,7 +7,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("TheForgottenDepths");
+        SceneManager.LoadScene("TheForgottenDephth_GA");
     }
     public void QuitGame()
     {

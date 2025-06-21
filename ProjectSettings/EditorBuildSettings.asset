@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Areas/The Forgotten Depths.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: 46e25f61837e34644ad13bb4f15f6d43
+  - enabled: 1
+    path: Assets/Scenes/TheForgottenDephth_GA.unity
+    guid: eda7f6eec91532a4692776c0af2340f3
+  - enabled: 1
+    path: Assets/Scenes/TheSilentGlade_GA.unity
+    guid: c2fe244e513efc6478aa3f1c46caf506
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
