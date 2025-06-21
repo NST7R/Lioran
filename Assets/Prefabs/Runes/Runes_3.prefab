@@ -19611,7 +19611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194347666991702132}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -53.4, y: -13.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -19715,7 +19715,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   pickupEffect: {fileID: 3758289598497762758}
-  runeIndex: 7
+  runeIndex: 3
 --- !u!58 &4925280975092643170
 CircleCollider2D:
   m_ObjectHideFlags: 0
