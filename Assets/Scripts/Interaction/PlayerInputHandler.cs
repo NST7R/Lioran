@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 /// <summary>
 /// Gère les entrées du joueur (ex: touche E pour interaction).
 /// Affiche les prompts d’interaction et déclenche les actions des objets à portée.
@@ -10,27 +9,34 @@ public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] private KeyCode interactKey = KeyCode.E; // Touche configurable pour interagir
 
-    private IInteractable currentInteractable; // Objet en cours de détection
+    private IInteractable currentInteractable;     // Objet actuellement détecté
+    private Transform interactableTransform;       // Pour positionner l’UI au bon endroit
 
     /// <summary>
-    /// Détermine quel objet est actuellement interactif et affiche son prompt si nécessaire.
+    /// Appelé par un trigger de détection pour définir l’objet interactif courant.
     /// </summary>
-    public void SetInteractable(IInteractable interactable)
+    public void SetInteractable(IInteractable interactable, Transform origin)
     {
         currentInteractable = interactable;
+        interactableTransform = origin;
 
         if (interactable != null)
-            UIManager.Instance.ShowInteractionPrompt(interactable.GetInteractionPrompt());
+        {
+            string prompt = interactable.GetInteractionPrompt();
+            UIManager.Instance.ShowInteractionPrompt(prompt, interactableTransform);
+        }
         else
+        {
             UIManager.Instance.HideInteractionPrompt();
+        }
     }
 
     private void Update()
     {
-        // Si le joueur appuie sur la touche d’interaction
+        // Déclenche l’action de l’objet si la touche est pressée
         if (Input.GetKeyDown(interactKey) && currentInteractable != null)
         {
-            currentInteractable.Interact(transform); // Appelle l'interaction de l'objet en cours
+            currentInteractable.Interact(transform);
         }
     }
 }
