@@ -1,17 +1,25 @@
 using UnityEngine;
 using System.Collections;
+
 public class RuneManager : MonoBehaviour
 {
-    public Transform[] runeSlots;         
-    public GameObject[] runePrefabs;      // Prefabs for each rune
+    public Transform[] runeSlots;
+    public GameObject[] runePrefabs;
     public GameObject chargingVFXPrefab;
-    private bool[] activatedRunes = new bool[8]; // Track which runes have appeared
 
-    public Camera playerCamera;
+    private bool[] activatedRunes = new bool[8];
+
+    public Camera lioranCamera;
     public Camera runeCamera;
     public float cameraShowTime = 2f;
     public ScreenFader screenFader;
 
+    [Header("Assign Lioran Components")]
+    public Rigidbody2D lioranRigidbody;
+    public Animator lioranAnimator;
+    public LioranHealth lioranHealth;
+
+    private RigidbodyConstraints2D originalConstraints;
 
     void OnEnable()
     {
@@ -32,44 +40,61 @@ public class RuneManager : MonoBehaviour
         activatedRunes[index] = true;
         StartCoroutine(ShowRuneWithEffect(index));
     }
+
     private IEnumerator ShowRuneWithEffect(int index)
     {
-        
         Transform slot = runeSlots[index];
+
+        // --- Enable silent invulnerability before transition ---
+        if (lioranHealth != null)
+            lioranHealth.EnableSilentInvulnerability();
+
+        // --- Freeze Rigidbody ---
+        if (lioranRigidbody != null)
+        {
+            originalConstraints = lioranRigidbody.constraints;
+            lioranRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+
+        // --- Play idle animation ---
+        if (lioranAnimator != null)
+        {
+            lioranAnimator.Play("LioranIdle");
+        }
 
         yield return StartCoroutine(screenFader.FadeOut());
 
-        // --- Switch Cameras ---
-        playerCamera.enabled = false;
+        lioranCamera.enabled = false;
         runeCamera.enabled = true;
 
-        // --- Fade In ---
         yield return StartCoroutine(screenFader.FadeIn());
 
-        // Spawn the charging VFX at the slot
         GameObject vfx = Instantiate(chargingVFXPrefab, slot.position + new Vector3(0, 0, -5), Quaternion.identity);
         vfx.transform.SetParent(slot);
 
-        // Wait before showing the rune
-        yield return new WaitForSeconds(1.58f); // Adjust duration as needed
-
-        // Spawn the actual rune
+        yield return new WaitForSeconds(1.58f);
 
         GameObject rune = Instantiate(runePrefabs[index], slot);
         rune.transform.localPosition = Vector3.zero;
         rune.transform.localScale *= 0.5f;
-        yield return new WaitForSeconds(cameraShowTime); // Adjust duration as needed
 
-        // --- Fade Out Again ---
+        yield return new WaitForSeconds(cameraShowTime);
+
         yield return StartCoroutine(screenFader.FadeOut());
 
         Destroy(vfx, 3f);
-        // --- Switch Back ---
+
         runeCamera.enabled = false;
-        playerCamera.enabled = true;
+        lioranCamera.enabled = true;
 
-        // --- Final Fade In ---
         yield return StartCoroutine(screenFader.FadeIn());
-    }
 
+        // --- Disable silent invulnerability after transition ---
+        if (lioranHealth != null)
+            lioranHealth.DisableSilentInvulnerability();
+
+        // --- Restore Rigidbody ---
+        if (lioranRigidbody != null)
+            lioranRigidbody.constraints = originalConstraints;
+    }
 }

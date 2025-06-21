@@ -21,6 +21,9 @@ public class LioranHealth : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
 
+    // Silent invulnerability flag (no flashes, no effects)
+    private bool isTemporarilyInvulnerable = false;
+
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -40,7 +43,7 @@ public class LioranHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (dead || amount <= 0) return;
+        if (dead || amount <= 0 || isTemporarilyInvulnerable) return;
 
         int previousHealth = currentHealth;
         currentHealth = Mathf.Max(currentHealth - amount, 0);
@@ -106,7 +109,6 @@ public class LioranHealth : MonoBehaviour
     {
         dead = false;
 
-        // Directly set health and update UI
         currentHealth = startingHealth;
         UpdateHeartsUI();
 
@@ -149,5 +151,17 @@ public class LioranHealth : MonoBehaviour
         }
 
         Physics2D.IgnoreLayerCollision(8, 9, false);
+    }
+
+    // --- NEW Silent Invulnerability Methods ---
+
+    public void EnableSilentInvulnerability()
+    {
+        isTemporarilyInvulnerable = true;
+    }
+
+    public void DisableSilentInvulnerability()
+    {
+        isTemporarilyInvulnerable = false;
     }
 }
