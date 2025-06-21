@@ -12,10 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject interactionPromptUI;   // UI contenant le texte
     [SerializeField] private TextMeshProUGUI promptText;       // Texte TMP à modifier dynamiquement
 
-<<<<<<< HEAD
-=======
     private Transform followTarget;
->>>>>>> NeoIha
     private void Awake()
     {
         // Singleton
@@ -23,15 +20,6 @@ public class UIManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-<<<<<<< HEAD
-    public void ShowInteractionPrompt(string text)
-    {
-        promptText.text = text;
-        interactionPromptUI.SetActive(true);
-    }
-
-    public void HideInteractionPrompt()
-=======
     public void ShowInteractionPrompt(string text, Transform target)
     {
         promptText.text = text;
@@ -42,13 +30,10 @@ public class UIManager : MonoBehaviour
 public void HideInteractionPrompt()
 {
     if (interactionPromptUI != null)
->>>>>>> NeoIha
     {
         interactionPromptUI.SetActive(false);
     }
 }
-<<<<<<< HEAD
-=======
 
 
     private void LateUpdate()
@@ -67,4 +52,3 @@ public void HideInteractionPrompt()
     }
 
 }
->>>>>>> NeoIha

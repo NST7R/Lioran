@@ -17,24 +17,16 @@ public class InteractionDetector : MonoBehaviour
     {
         var interactable = other.GetComponent<IInteractable>();
         if (interactable != null)
-<<<<<<< HEAD
-            inputHandler.SetInteractable(interactable);
-=======
             inputHandler.SetInteractable(interactable,other.transform);
          
->>>>>>> NeoIha
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         var interactable = other.GetComponent<IInteractable>();
         if (interactable != null)
-<<<<<<< HEAD
-            inputHandler.SetInteractable(null); // Efface le prompt quand on quitte la zone
-=======
       
 
             inputHandler.SetInteractable(null,null); // Efface le prompt quand on quitte la zone
->>>>>>> NeoIha
     }
 }

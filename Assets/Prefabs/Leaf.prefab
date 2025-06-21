@@ -11,11 +11,8 @@ GameObject:
   - component: {fileID: 665626496485211337}
   - component: {fileID: 7517568963355234887}
   - component: {fileID: 2028784788797568701}
-<<<<<<< HEAD
-=======
   - component: {fileID: 6852991829600715797}
   - component: {fileID: 7351867234344227456}
->>>>>>> NeoIha
   m_Layer: 8
   m_Name: Leaf
   m_TagString: Untagged
@@ -32,11 +29,7 @@ Transform:
   m_GameObject: {fileID: 3740515693762773089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -1.5134641, y: -23.746346, z: -0.091235586}
-=======
   m_LocalPosition: {x: 0, y: 0, z: 0}
->>>>>>> NeoIha
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -86,13 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-<<<<<<< HEAD
-  m_SortingLayerID: 1792345365
-  m_SortingLayer: 5
-=======
   m_SortingLayerID: -1981621469
   m_SortingLayer: 4
->>>>>>> NeoIha
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,8 +109,6 @@ MonoBehaviour:
   vfxPurification: {fileID: 875207806271021498, guid: 29b72158e17b873439d27c97644716ea, type: 3}
   corruptedLeafVFX: {fileID: 7027263105812313675, guid: d66a3189117bc4e45b3cc58dadc72755, type: 3}
   purifiedLeafVFX: {fileID: 8500337273592075160, guid: c7e6c6e29b23c914598c79db3a0e58ba, type: 3}
-<<<<<<< HEAD
-=======
 --- !u!58 &6852991829600715797
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -195,7 +181,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 5
->>>>>>> NeoIha
 --- !u!1001 &4865478885142084311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -206,17 +191,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3116253711156005045, guid: d66a3189117bc4e45b3cc58dadc72755, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 0.71000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116253711156005045, guid: d66a3189117bc4e45b3cc58dadc72755, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -17.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116253711156005045, guid: d66a3189117bc4e45b3cc58dadc72755, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.05161854
-=======
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3116253711156005045, guid: d66a3189117bc4e45b3cc58dadc72755, type: 3}
@@ -226,7 +200,6 @@ PrefabInstance:
     - target: {fileID: 3116253711156005045, guid: d66a3189117bc4e45b3cc58dadc72755, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
->>>>>>> NeoIha
       objectReference: {fileID: 0}
     - target: {fileID: 3116253711156005045, guid: d66a3189117bc4e45b3cc58dadc72755, type: 3}
       propertyPath: m_LocalRotation.w
@@ -260,8 +233,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_Cursed_Leaf
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: 7090799724185492155, guid: d66a3189117bc4e45b3cc58dadc72755, type: 3}
       propertyPath: m_Radius
       value: 1
@@ -270,7 +241,6 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
->>>>>>> NeoIha
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -295,17 +265,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3188423037537396588, guid: 29b72158e17b873439d27c97644716ea, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: 27.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 3188423037537396588, guid: 29b72158e17b873439d27c97644716ea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -46.390778
-      objectReference: {fileID: 0}
-    - target: {fileID: 3188423037537396588, guid: 29b72158e17b873439d27c97644716ea, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.02238424
-=======
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3188423037537396588, guid: 29b72158e17b873439d27c97644716ea, type: 3}
@@ -315,7 +274,6 @@ PrefabInstance:
     - target: {fileID: 3188423037537396588, guid: 29b72158e17b873439d27c97644716ea, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
->>>>>>> NeoIha
       objectReference: {fileID: 0}
     - target: {fileID: 3188423037537396588, guid: 29b72158e17b873439d27c97644716ea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -365,17 +323,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3280869565041989363, guid: c7e6c6e29b23c914598c79db3a0e58ba, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
-      value: -5.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3280869565041989363, guid: c7e6c6e29b23c914598c79db3a0e58ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -17.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3280869565041989363, guid: c7e6c6e29b23c914598c79db3a0e58ba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.05161854
-=======
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3280869565041989363, guid: c7e6c6e29b23c914598c79db3a0e58ba, type: 3}
@@ -385,7 +332,6 @@ PrefabInstance:
     - target: {fileID: 3280869565041989363, guid: c7e6c6e29b23c914598c79db3a0e58ba, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
->>>>>>> NeoIha
       objectReference: {fileID: 0}
     - target: {fileID: 3280869565041989363, guid: c7e6c6e29b23c914598c79db3a0e58ba, type: 3}
       propertyPath: m_LocalRotation.w
