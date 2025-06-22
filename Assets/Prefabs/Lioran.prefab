@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactKey: 101
+  vfxLaunchPoint: {fileID: 363278048667496126}
 --- !u!114 &4727802257150841944
 MonoBehaviour:
   m_ObjectHideFlags: 0

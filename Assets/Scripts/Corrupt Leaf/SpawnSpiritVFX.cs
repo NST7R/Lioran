@@ -1,35 +1,28 @@
 using UnityEngine;
 using System;
-using System.Collections;
 
-/// <summary>
-/// Gère le VFX complet : orb lumineuse lancée depuis le joueur + apparition de l’esprit.
-/// Ce FX joue tout seul (pas de déplacement manuel). Une fois terminé, il exécute un callback.
-/// </summary>
 public class SpawnSpiritVFX : MonoBehaviour
 {
-    private Action onCompleteCallback;
+    private Vector3 targetPosition;
+    private Action onImpact;
+    private float speed = 5f;
 
-    [Tooltip("Durée approximative du VFX avant la purification (doit correspondre à la timeline visuelle)")]
-    [SerializeField] private float vfxDuration = 2.5f;
-
-    /// <summary>
-    /// Initialisé depuis CorruptedLeaf.
-    /// </summary>
-    public void Initialize(Action callback)
+    public void Initialize(Vector3 target, Action onImpactCallback)
     {
-        onCompleteCallback = callback;
-        StartCoroutine(VFXSequence());
+        targetPosition = target;
+        onImpact = onImpactCallback;
     }
 
-    /// <summary>
-    /// Coroutine pour attendre la fin du VFX puis déclencher le reste de la logique.
-    /// </summary>
-    private IEnumerator VFXSequence()
+    private void Update()
     {
-        yield return new WaitForSeconds(vfxDuration);
-
-        onCompleteCallback?.Invoke();
-        Destroy(gameObject);
+        /* if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        }
+        else
+        {
+            onImpact?.Invoke();
+            Destroy(gameObject);
+        } */
     }
 }
