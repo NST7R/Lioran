@@ -16323,11 +16323,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1398417998 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 6178157436242385573, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
-  m_PrefabInstance: {fileID: 1567873782}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1398979799
 GameObject:
   m_ObjectHideFlags: 0
@@ -18251,14 +18246,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lioran
       objectReference: {fileID: 0}
-    - target: {fileID: 3801704244048189073, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
-      propertyPath: jumpForce
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5306423835129066274, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
-      propertyPath: m_GravityScale
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8082903656169398948, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -18303,14 +18290,6 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 216521777}
-    - target: {fileID: 8644817686546887580, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
-      propertyPath: components.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8644817686546887580, guid: 2e67be15f985aa448876adeefcdc6184, type: 3}
-      propertyPath: 'components.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1398417998}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19705,30 +19684,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8569790739282253119, guid: af871de2336ed504693209cca0288a85, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1709189794}
+      addedObject: {fileID: 1709189797}
     - targetCorrespondingSourceObject: {fileID: 8569790739282253119, guid: af871de2336ed504693209cca0288a85, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1709189797}
+      addedObject: {fileID: 1709189798}
   m_SourcePrefab: {fileID: 100100000, guid: af871de2336ed504693209cca0288a85, type: 3}
 --- !u!1 &1709189793 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8569790739282253119, guid: af871de2336ed504693209cca0288a85, type: 3}
   m_PrefabInstance: {fileID: 1709189792}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1709189794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709189793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5adc889cfc5aba54089f62fe1d77f73d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactPrompt: {fileID: 0}
-  saveMenuPanel: {fileID: 0}
 --- !u!68 &1709189797
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -19772,6 +19737,18 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1709189798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709189793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4773fb36d083abe4f8a9dda29e0e781c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1709383167
 GameObject:
   m_ObjectHideFlags: 0
