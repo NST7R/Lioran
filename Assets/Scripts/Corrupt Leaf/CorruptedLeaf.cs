@@ -14,9 +14,12 @@ public class CorruptedLeaf : MonoBehaviour, IInteractable
 {
     [Header("Références VFX")]
     [SerializeField] private GameObject spawnSpiritVFXPrefab;
-    [SerializeField] private GameObject vfxPurification;   // Déjà présent dans la scène, désactivé initialement
+    [SerializeField] private GameObject vfxPurification;
     [SerializeField] private GameObject corruptedLeafVFX;
     [SerializeField] private GameObject purifiedLeafVFX;
+
+    [Header("Spawn Point")]
+    [SerializeField] private Transform spawnSpiritVFXSpawnPoint;
 
     private bool purified = false;
     private GameObject currentSpiritVFXInstance;
@@ -35,29 +38,17 @@ public class CorruptedLeaf : MonoBehaviour, IInteractable
 
     public string GetInteractionPrompt() => purified ? "" : "Purifier (E)";
 
-    public void Interact(Transform vfxLaunchPoint)
+    public void Interact(Transform player)
     {
-        if (purified || spawnSpiritVFXPrefab == null)
+        if (purified)
             return;
 
-        StartCoroutine(PlaySpiritThenActivatePurification(vfxLaunchPoint.position));
+        StartCoroutine(PlayPurificationSequence());
     }
 
-    private IEnumerator PlaySpiritThenActivatePurification(Vector3 spawnPos)
+    private IEnumerator PlayPurificationSequence()
     {
-        // Instanciation et lancement spawnSpiritVFX
-        if (currentSpiritVFXInstance == null)
-        {
-            currentSpiritVFXInstance = Instantiate(spawnSpiritVFXPrefab, spawnPos, Quaternion.identity);
-            var psSpirit = currentSpiritVFXInstance.GetComponent<ParticleSystem>();
-            if (psSpirit != null)
-                psSpirit.Play();
-        }
-
-        // Attente fixe de 1.5 secondes avant de lancer vfxPurification
-        yield return new WaitForSeconds(1.5f);
-
-        // Activation et lancement du vfxPurification
+        // Active vfx purification
         if (vfxPurification != null)
         {
             vfxPurification.SetActive(true);
@@ -69,22 +60,26 @@ public class CorruptedLeaf : MonoBehaviour, IInteractable
             }
         }
 
-        // Switch visuels feuille (corrompue --> purifiée)
+        // Switch visuels
         if (corruptedLeafVFX != null)
             corruptedLeafVFX.SetActive(false);
-
         if (purifiedLeafVFX != null)
             purifiedLeafVFX.SetActive(true);
 
         purified = true;
 
-        // Optionnel : tu peux attendre la fin du vfxPurification si besoin ici
-
-        // Détruire spawnSpiritVFX à la fin de la purification
-        if (currentSpiritVFXInstance != null)
+        // Instancie spawnSpiritVFX (si pas déjà)
+        if (spawnSpiritVFXPrefab != null && spawnSpiritVFXSpawnPoint != null)
         {
-            Destroy(currentSpiritVFXInstance);
-            currentSpiritVFXInstance = null;
+            if (currentSpiritVFXInstance == null)
+            {
+                currentSpiritVFXInstance = Instantiate(spawnSpiritVFXPrefab, spawnSpiritVFXSpawnPoint.position, spawnSpiritVFXSpawnPoint.rotation);
+                var spawnSpiritScript = currentSpiritVFXInstance.GetComponent<SpawnSpiritVFX>();
+                if (spawnSpiritScript != null)
+                    spawnSpiritScript.Initialize(Vector3.zero, null);
+            }
         }
+
+        yield return new WaitForSeconds(1.5f);
     }
 }

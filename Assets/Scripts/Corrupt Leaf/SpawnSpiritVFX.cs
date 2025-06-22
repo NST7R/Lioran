@@ -1,24 +1,29 @@
+/// <summary>
+/// Gère le VFX complet : orb lumineuse lancée depuis le joueur + apparition de l’esprit.
+/// Ce FX joue tout seul (pas de déplacement manuel). Une fois terminé, il exécute un callback.
+/// </summary>
+/// 
 using UnityEngine;
-using System;
-using System.Collections;
 
 public class SpawnSpiritVFX : MonoBehaviour
 {
-    private Action onImpact;
-
-    public void Initialize(Vector3 target, Action onImpactCallback)
+    public void Initialize(Vector3 target, System.Action onImpactCallback)
     {
-        onImpact = onImpactCallback;
-        // Ici tu peux lancer la coroutine pour simuler la fin du VFX
-        StartCoroutine(WaitAndImpact());
+        // On peut utiliser target ou callback plus tard, ici inutilisés
+        PlayEffect();
     }
 
-    private IEnumerator WaitAndImpact()
+    private void PlayEffect()
     {
-        // Attends 1 seconde (durée du VFX) avant d’appeler la callback
-        yield return new WaitForSeconds(1f);
-
-        onImpact?.Invoke();
-        Destroy(gameObject);
+        var ps = GetComponent<ParticleSystem>();
+        if (ps != null)
+        {
+            ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            ps.Play();
+        }
+        else
+        {
+            Debug.LogWarning("SpawnSpiritVFX : Pas de ParticleSystem trouvé !");
+        }
     }
 }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1784426483198487601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8071086377626283913}
+  m_Layer: 8
+  m_Name: SpiritInvoc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8071086377626283913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784426483198487601}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 665626496485211337}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!1 &3740515693762773089
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +66,7 @@ Transform:
   - {fileID: 8995918535980908318}
   - {fileID: 7546501879098569314}
   - {fileID: 8056273564344333052}
+  - {fileID: 8071086377626283913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7517568963355234887
@@ -108,6 +140,7 @@ MonoBehaviour:
   vfxPurification: {fileID: 5753193629181375530}
   corruptedLeafVFX: {fileID: 2450096549161077916}
   purifiedLeafVFX: {fileID: 2641170917635291765}
+  spawnSpiritVFXSpawnPoint: {fileID: 8071086377626283913}
 --- !u!58 &7351867234344227456
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -237,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 875207806271021498, guid: 29b72158e17b873439d27c97644716ea, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3188423037537396588, guid: 29b72158e17b873439d27c97644716ea, type: 3}
       propertyPath: m_LocalPosition.x
