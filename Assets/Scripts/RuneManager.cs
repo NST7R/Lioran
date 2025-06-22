@@ -1,5 +1,9 @@
+﻿// --------------------------
+// RuneManager.cs (SINGLE BARRIER VERSION)
+// --------------------------
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class RuneManager : MonoBehaviour
 {
@@ -20,6 +24,10 @@ public class RuneManager : MonoBehaviour
     public LioranHealth lioranHealth;
 
     private RigidbodyConstraints2D originalConstraints;
+
+    [Header("Barrier Cinematic")]
+    public BarrierManager barrier;
+    public Camera barrierCamera;
 
     void OnEnable()
     {
@@ -45,22 +53,13 @@ public class RuneManager : MonoBehaviour
     {
         Transform slot = runeSlots[index];
 
-        // --- Enable silent invulnerability before transition ---
-        if (lioranHealth != null)
-            lioranHealth.EnableSilentInvulnerability();
-
-        // --- Freeze Rigidbody ---
+        if (lioranHealth != null) lioranHealth.EnableSilentInvulnerability();
         if (lioranRigidbody != null)
         {
             originalConstraints = lioranRigidbody.constraints;
             lioranRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         }
-
-        // --- Play idle animation ---
-        if (lioranAnimator != null)
-        {
-            lioranAnimator.Play("LioranIdle");
-        }
+        if (lioranAnimator != null) lioranAnimator.Play("LioranIdle");
 
         yield return StartCoroutine(screenFader.FadeOut());
 
@@ -89,12 +88,44 @@ public class RuneManager : MonoBehaviour
 
         yield return StartCoroutine(screenFader.FadeIn());
 
-        // --- Disable silent invulnerability after transition ---
-        if (lioranHealth != null)
-            lioranHealth.DisableSilentInvulnerability();
+        if (lioranHealth != null) lioranHealth.DisableSilentInvulnerability();
+        if (lioranRigidbody != null) lioranRigidbody.constraints = originalConstraints;
 
-        // --- Restore Rigidbody ---
-        if (lioranRigidbody != null)
-            lioranRigidbody.constraints = originalConstraints;
+        if (AllRunesActivated())
+        {
+            yield return new WaitForSeconds(0.5f);
+            yield return StartCoroutine(PlayBarrierCinematic());
+        }
+    }
+
+    private IEnumerator PlayBarrierCinematic()
+    {
+        yield return StartCoroutine(screenFader.FadeOut());
+
+        lioranCamera.enabled = false;
+        barrierCamera.enabled = true;
+
+        yield return StartCoroutine(screenFader.FadeIn());
+
+        if (barrier != null)
+            barrier.StartDissolve();
+
+        yield return new WaitForSeconds(cameraShowTime+1f);
+
+        yield return StartCoroutine(screenFader.FadeOut());
+
+        barrierCamera.enabled = false;
+        lioranCamera.enabled = true;
+
+        yield return StartCoroutine(screenFader.FadeIn());
+    }
+
+    private bool AllRunesActivated()
+    {
+        foreach (bool activated in activatedRunes)
+        {
+            if (!activated) return false;
+        }
+        return true;
     }
 }

@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.2482712, b: 0, a: 0.1764706}
+      maxColor: {r: 0.6862745, g: 0.99607843, b: 1, a: 0.1764706}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4856,6 +4856,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1382267833639653102}
+  - {fileID: 32153515097238081}
   m_Father: {fileID: 7488479338761386550}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &5817035300301298286
@@ -5048,7 +5049,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9245283, g: 0.23988737, b: 0, a: 0.1764706}
+      maxColor: {r: 0, g: 0.8392157, b: 1, a: 0.1764706}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9668,6 +9669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7488479338761386550}
   - component: {fileID: 2288793864417951020}
+  - component: {fileID: 4723010968927142409}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Untagged
@@ -9737,3 +9739,122 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.3643723, y: 33.205055}
   m_EdgeRadius: 0
+--- !u!114 &4723010968927142409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5190171609907073714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404912ef879b63a46b8bf9ce9ab2078a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  auraEffect: {fileID: 2320211285532130597}
+  runeSpawnEffect: {fileID: 540845810980572242}
+  dissolveMaterial: {fileID: 2100000, guid: 84dd77e47b6ffa240983cdca3f714101, type: 2}
+  dissolveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dissolveDuration: 1
+--- !u!1001 &4471669926611576735
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 132394617075122680}
+    m_Modifications:
+    - target: {fileID: 1954110163394259480, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_Depth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954110163394259480, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954110163394259480, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: orthographic size
+      value: 13.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356466669593626017, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_Name
+      value: Barrier Camera 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7620449760701819172, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6086922292987695633, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+--- !u!4 &32153515097238081 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4502662193411280350, guid: f3b94474dcc46ae4793737964e6a313a, type: 3}
+  m_PrefabInstance: {fileID: 4471669926611576735}
+  m_PrefabAsset: {fileID: 0}
