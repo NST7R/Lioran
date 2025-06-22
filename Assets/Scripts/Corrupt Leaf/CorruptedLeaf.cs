@@ -12,67 +12,61 @@ using UnityEngine;
 public class CorruptedLeaf : MonoBehaviour, IInteractable
 {
     [Header("Références VFX")]
-    [Tooltip("VFX complet : orbe lumineuse + apparition de l’esprit (contient l’animation complète)")]
     [SerializeField] private GameObject spawnSpiritVFX;
-
-    [Tooltip("FX de purification à jouer à l’emplacement de la feuille")]
     [SerializeField] private GameObject vfxPurification;
-
-    [Tooltip("Mesh ou VFX visible avant purification (corrompu)")]
     [SerializeField] private GameObject corruptedLeafVFX;
-
-    [Tooltip("Mesh ou VFX visible après purification (purifié)")]
     [SerializeField] private GameObject purifiedLeafVFX;
 
-    private bool purified = false; // Empêche les répétitions de purification
+  
+
+    private bool purified = false;
 
     private void Awake()
     {
-        // Active par défaut la version corrompue, désactive la purifiée
         if (corruptedLeafVFX != null)
             corruptedLeafVFX.SetActive(true);
-
         if (purifiedLeafVFX != null)
             purifiedLeafVFX.SetActive(false);
     }
 
-    /// <summary>
-    /// Texte d’interaction affiché au joueur.
-    /// </summary>
-    public string GetInteractionPrompt()
-    {
-        return purified ? "" : "Purifier (E)";
-    }
+    public string GetInteractionPrompt() => purified ? "" : "Purifier (E)";
 
-    /// <summary>
-    /// Appelée par le système d’interaction du joueur.
-    /// Lance le VFX d’orbe, puis purification après l’arrivée.
-    /// </summary>
-    public void Interact(Transform player)
+   public void Interact(Transform player)
     {
         if (purified || spawnSpiritVFX == null)
             return;
 
-        // Instancie le VFX de transition (orbe + spirit)
-        GameObject fx = Instantiate(spawnSpiritVFX, player.position, Quaternion.identity);
+        // Calcule dynamique du point d’impact sous la feuille (ex: raycast au sol)
+        Vector3 origin = transform.position;
+        Vector3 direction = Vector3.down;
 
-        // Une fois le FX terminé, on lance la purification
-        SpawnSpiritVFX fxScript = fx.GetComponent<SpawnSpiritVFX>();
-        fxScript.Initialize(() =>
+        Vector3 impactPoint = player.position; // par défaut : 2 unités sous la feuille
+
+        // Raycast pour détecter un vrai sol si nécessaire
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, 5f))
         {
-            // 1. FX de purification
-            if (vfxPurification != null)
-                Instantiate(vfxPurification, transform.position, Quaternion.identity);
+            impactPoint = transform.position;
+        }
 
-            // 2. Transition visuelle
+        // Instancie le VFX de transition (orbe + spirit)
+        GameObject fx = Instantiate(spawnSpiritVFX, player.position, spawnSpiritVFX.transform.rotation);
+
+        // Initialise le FX avec la position d’impact calculée
+        SpawnSpiritVFX fxScript = fx.GetComponent<SpawnSpiritVFX>();
+        fxScript.Initialize(impactPoint, () =>
+        {
+            Debug.Log("in");
+            if (vfxPurification != null)
+                Instantiate(vfxPurification, impactPoint, Quaternion.identity);
+                 Debug.Log("purification");
             if (corruptedLeafVFX != null)
                 corruptedLeafVFX.SetActive(false);
-
+                 Debug.Log("deactiv corruption");
             if (purifiedLeafVFX != null)
                 purifiedLeafVFX.SetActive(true);
-
-            // 3. Marque la feuille comme purifiée
+                 Debug.Log("purified");
             purified = true;
         });
     }
+
 }

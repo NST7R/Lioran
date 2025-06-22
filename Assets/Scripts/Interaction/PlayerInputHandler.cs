@@ -9,6 +9,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     [SerializeField] private KeyCode interactKey = KeyCode.E; // Touche configurable pour interagir
 
+    public Transform vfxLaunchPoint; // Assigné via l'inspecteur
     private IInteractable currentInteractable;     // Objet actuellement détecté
     private Transform interactableTransform;       // Pour positionner l’UI au bon endroit
 
@@ -36,7 +37,7 @@ public class PlayerInputHandler : MonoBehaviour
         // Déclenche l’action de l’objet si la touche est pressée
         if (Input.GetKeyDown(interactKey) && currentInteractable != null)
         {
-            currentInteractable.Interact(transform);
+            currentInteractable.Interact(vfxLaunchPoint);
         }
     }
 }

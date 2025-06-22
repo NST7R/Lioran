@@ -1,6 +1,6 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LioranHealth : MonoBehaviour
 {
@@ -21,12 +21,12 @@ public class LioranHealth : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
 
-    // Silent invulnerability flag (no flashes, no effects)
     private bool isTemporarilyInvulnerable = false;
+
+    private const string HealthSaveKey = "LioranHealth";
 
     private void Awake()
     {
-        currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
 
@@ -39,6 +39,8 @@ public class LioranHealth : MonoBehaviour
             else
                 Debug.LogWarning($"Missing HeartUIScript on {heart.name}");
         }
+
+        LoadHealth();
     }
 
     public void TakeDamage(int amount)
@@ -47,6 +49,7 @@ public class LioranHealth : MonoBehaviour
 
         int previousHealth = currentHealth;
         currentHealth = Mathf.Max(currentHealth - amount, 0);
+        SaveHealth();
 
         for (int i = previousHealth - 1; i >= currentHealth; i--)
         {
@@ -71,6 +74,7 @@ public class LioranHealth : MonoBehaviour
 
         int previousHealth = currentHealth;
         currentHealth = Mathf.Min(currentHealth + amount, startingHealth);
+        SaveHealth();
 
         for (int i = previousHealth; i < currentHealth; i++)
         {
@@ -110,6 +114,7 @@ public class LioranHealth : MonoBehaviour
         dead = false;
 
         currentHealth = startingHealth;
+        SaveHealth();
         UpdateHeartsUI();
 
         anim.ResetTrigger("Die");
@@ -120,9 +125,7 @@ public class LioranHealth : MonoBehaviour
 
         var movement = GetComponent<LioranMovement>();
         if (movement != null && !movement.enabled)
-        {
             movement.enabled = true;
-        }
 
         StartCoroutine(Invulnerability());
     }
@@ -153,8 +156,6 @@ public class LioranHealth : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 9, false);
     }
 
-    // --- NEW Silent Invulnerability Methods ---
-
     public void EnableSilentInvulnerability()
     {
         isTemporarilyInvulnerable = true;
@@ -163,5 +164,25 @@ public class LioranHealth : MonoBehaviour
     public void DisableSilentInvulnerability()
     {
         isTemporarilyInvulnerable = false;
+    }
+
+    // Save current health
+    public void SaveHealth()
+    {
+        PlayerPrefs.SetInt(HealthSaveKey, currentHealth);
+        PlayerPrefs.Save();
+    }
+
+    // Load saved health
+    public void LoadHealth()
+    {
+        currentHealth = PlayerPrefs.GetInt(HealthSaveKey, startingHealth);
+        UpdateHeartsUI();
+    }
+
+    // Optional reset method
+    public void ResetSavedHealth()
+    {
+        PlayerPrefs.DeleteKey(HealthSaveKey);
     }
 }
