@@ -36,7 +36,7 @@ public class CorruptedLeaf : MonoBehaviour, IInteractable
             vfxPurification.SetActive(false);
     }
 
-    public string GetInteractionPrompt() => purified ? "" : "Purifier (E)";
+    public string GetInteractionPrompt() => purified ? "" : "Press (E) to purify";
 
     public void Interact(Transform player)
     {
