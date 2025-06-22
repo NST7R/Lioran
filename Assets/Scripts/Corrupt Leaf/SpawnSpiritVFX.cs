@@ -1,28 +1,24 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class SpawnSpiritVFX : MonoBehaviour
 {
-    private Vector3 targetPosition;
     private Action onImpact;
-    private float speed = 5f;
 
     public void Initialize(Vector3 target, Action onImpactCallback)
     {
-        targetPosition = target;
         onImpact = onImpactCallback;
+        // Ici tu peux lancer la coroutine pour simuler la fin du VFX
+        StartCoroutine(WaitAndImpact());
     }
 
-    private void Update()
+    private IEnumerator WaitAndImpact()
     {
-        /* if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-        }
-        else
-        {
-            onImpact?.Invoke();
-            Destroy(gameObject);
-        } */
+        // Attends 1 seconde (durée du VFX) avant d’appeler la callback
+        yield return new WaitForSeconds(1f);
+
+        onImpact?.Invoke();
+        Destroy(gameObject);
     }
 }
