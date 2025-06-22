@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 /// <summary>
 /// Affiche les messages d’interaction (ex: "Appuyez sur E pour purifier") à l’écran.
@@ -20,10 +21,30 @@ public class UIManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
-
-    public void ShowInteractionPrompt(string text, Transform target)
+    public void RefreshCurrentPrompt(IInteractable source)
     {
-        promptText.text = text;
+        if (source == null || followTarget == null)
+            return;
+
+        var actions = source.GetAvailableActions();
+        ShowInteractionPrompt(actions, followTarget);
+    }
+
+
+public void ShowInteractionPrompt(Dictionary<KeyCode, string> actions, Transform target)
+    {
+        if (promptText == null || interactionPromptUI == null)
+            return;
+
+        // Génère le texte à partir du dictionnaire
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        foreach (var kvp in actions)
+        {
+            sb.AppendLine(kvp.Value);// Texte complet déjà formaté
+        }
+
+        promptText.text = sb.ToString().Trim(); // Trim pour éviter un retour à la ligne en trop
         interactionPromptUI.SetActive(true);
         followTarget = target;
     }

@@ -10,6 +10,7 @@
 /// </summary>
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CorruptedLeaf : MonoBehaviour, IInteractable
 {
@@ -27,6 +28,7 @@ public class CorruptedLeaf : MonoBehaviour, IInteractable
 
      private GameObject currentSpiritVFXInstance;
 
+    
     private void Awake()
     {
         if (corruptedLeafVFX != null)
@@ -43,41 +45,33 @@ public class CorruptedLeaf : MonoBehaviour, IInteractable
         return "";
     }
 
-    public void Interact()
+    public Dictionary<KeyCode, string> GetAvailableActions()
     {
+        var actions = new Dictionary<KeyCode, string>();
+
         if (!purified)
-        {
-            Debug.Log("Start purification");
-            StartCoroutine(PlayPurificationSequence());
-        }
+            actions.Add(KeyCode.E, "Press (E) to purify");
         else if (!collected)
-        {
-            Debug.Log("Collecting leaf");
-            CollectLeaf();
-        }
+            actions.Add(KeyCode.F, "Press (F) to collect");
+
+        return actions;
     }
 
-    // private void LaunchPurification()
-    // {
-    //     if (spawnSpiritVFX == null) return;
+    public void Interact(KeyCode key)
+    {
+        if (key == KeyCode.E && !purified)
+        {
+            StartCoroutine(PlayPurificationSequence());
+        }
+        else if (key == KeyCode.F && purified && !collected)
+        {
+            CollectLeaf();
+        }
+        // ⚠️ Important : après chaque interaction, on rafraîchit le texte affiché
+        UIManager.Instance?.RefreshCurrentPrompt(this);
+    }
 
-    //     GameObject fx = Instantiate(spawnSpiritVFX, spawnSpiritVFXSpawnPoint.position, Quaternion.identity);
-
-    //     var fxScript = fx.GetComponent<SpawnSpiritVFX>();
-    //     fxScript.Initialize(transform.position,() =>
-    //     {
-    //         if (vfxPurification != null)
-    //             Instantiate(vfxPurification, transform.position, Quaternion.identity);
-
-    //         if (corruptedLeafVFX != null)
-    //             corruptedLeafVFX.SetActive(false);
-
-    //         if (purifiedLeafVFX != null)
-    //             purifiedLeafVFX.SetActive(true);
-
-    //         purified = true;
-    //     });
-    // }
+    
     private IEnumerator PlayPurificationSequence()
     {Debug.Log("PlayPurificationSequence started");
 
@@ -115,13 +109,21 @@ public class CorruptedLeaf : MonoBehaviour, IInteractable
     }
 
     private void CollectLeaf()
+{
+    collected = true;
+
+    // Détruire le VFX s'il existe encore
+    if (currentSpiritVFXInstance != null)
     {
-        collected = true;
-
-        // Met à jour un compteur de collection
-        LeafCounterManager.Instance?.AddLeaf();
-
-        // Désactive proprement la feuille dans la scène
-        gameObject.SetActive(false);
+        Destroy(currentSpiritVFXInstance);
+        currentSpiritVFXInstance = null;
     }
+
+    // Met à jour un compteur de collection
+    LeafCounterManager.Instance?.AddLeaf();
+
+    // Désactive proprement la feuille dans la scène
+    gameObject.SetActive(false);
+}
+
 }
