@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26da2b281c0ac7d408661f935c976151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSpiritVFXPrefab: {fileID: 3792625822194059531, guid: 584468587511e1948abefedad677aa3d, type: 3}
+  spawnSpiritVFX: {fileID: 3792625822194059531, guid: 584468587511e1948abefedad677aa3d, type: 3}
   vfxPurification: {fileID: 5753193629181375530}
   corruptedLeafVFX: {fileID: 2450096549161077916}
   purifiedLeafVFX: {fileID: 2641170917635291765}

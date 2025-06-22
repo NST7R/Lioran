@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6479528761274200905}
   - component: {fileID: 5741668971193963423}
   - component: {fileID: 3730105836708390132}
+  - component: {fileID: 5125841009514273556}
   m_Layer: 0
   m_Name: TriggerZone
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1299931774431306049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -932.57, z: 0}
+  m_LocalPosition: {x: 0, y: -6.01, z: 0}
   m_LocalScale: {x: 5.525, y: 0.99, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70,10 +71,10 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -92,6 +93,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentGroup: {fileID: 0}
+--- !u!212 &5125841009514273556
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299931774431306049}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 79b8191170cb6184c9988ce229993fbf, type: 3}
+  m_Color: {r: 0.90188676, g: 0.18888573, b: 0.18888573, a: 0.3019608}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &6688261878441152941
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,6 +159,7 @@ GameObject:
   - component: {fileID: 8466834369811883386}
   - component: {fileID: 6910538712381526256}
   - component: {fileID: 3371729491887972693}
+  - component: {fileID: 8805565864721167547}
   m_Layer: 0
   m_Name: FallingCeilingTrap
   m_TagString: Untagged
@@ -143,6 +200,7 @@ MonoBehaviour:
   spacing: 1
   fallDelay: 0.2
   fallPattern: 0
+  areaCollider: {fileID: 1299931774431306049}
 --- !u!61 &3371729491887972693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,15 +238,70 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!212 &8805565864721167547
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688261878441152941}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 79b8191170cb6184c9988ce229993fbf, type: 3}
+  m_Color: {r: 0.90720075, g: 0.9169811, b: 0.039793417, a: 0.30980393}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1001 &2939066421222480775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,6 +310,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8466834369811883386}
     m_Modifications:
+    - target: {fileID: 1157113432969707898, guid: abfcd7e1e793dac4d9b68ae862140a0a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157113432969707898, guid: abfcd7e1e793dac4d9b68ae862140a0a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.26768273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157113432969707898, guid: abfcd7e1e793dac4d9b68ae862140a0a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.28398338
+      objectReference: {fileID: 0}
     - target: {fileID: 1157113432969707898, guid: abfcd7e1e793dac4d9b68ae862140a0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -236,6 +361,10 @@ PrefabInstance:
     - target: {fileID: 1157113432969707898, guid: abfcd7e1e793dac4d9b68ae862140a0a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157113432969707898, guid: abfcd7e1e793dac4d9b68ae862140a0a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6041836287513395125, guid: abfcd7e1e793dac4d9b68ae862140a0a, type: 3}
       propertyPath: m_Name

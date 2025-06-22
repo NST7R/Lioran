@@ -1,17 +1,21 @@
-using UnityEngine;
+
 /// <summary>
 /// Interface à implémenter par tous les objets interactifs dans le monde.
 /// Sert à centraliser la détection et l'exécution de l'action contextuelle (ex: purifier, activer...).
 /// </summary>
+using System.Collections.Generic;
+using UnityEngine;
 public interface IInteractable
 {
-    /// <summary>
-    /// Retourne le texte du prompt affiché à l’écran (ex : "Purifier (E)").
+   /// <summary>
+    /// Retourne les actions disponibles, avec leur touche d’activation.
+    /// Exemple : { [E] => "Purifier", [F] => "Récolter" }
     /// </summary>
-    string GetInteractionPrompt();
+    /// Clé = touche (KeyCode), Valeur = message à afficher (texte personnalisé complet)
+    Dictionary<KeyCode, string> GetAvailableActions();
 
     /// <summary>
-    /// Appelé quand le joueur interagit avec l’objet.
+    /// Exécute l’action correspondant à la touche pressée.
     /// </summary>
-    void Interact(Transform player);
+    void Interact(KeyCode key);
 }
