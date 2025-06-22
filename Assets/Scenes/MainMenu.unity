@@ -611,6 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a880db7a600f2d4d8e42d0a56d5c1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstScene: TheForgottenDephth_GA
 --- !u!1 &416750970
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +697,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1638254158}
         m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1538,7 +1539,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1638254158}
         m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2294,6 +2295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a880db7a600f2d4d8e42d0a56d5c1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstScene: TheForgottenDephth_GA
 --- !u!1 &1683348383
 GameObject:
   m_ObjectHideFlags: 0

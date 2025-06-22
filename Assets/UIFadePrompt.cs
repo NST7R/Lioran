@@ -12,31 +12,19 @@ public class UIFadePrompt : MonoBehaviour
     {
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null)
-        {
-            Debug.LogError("UIFadePrompt: CanvasGroup component missing!");
-        }
-        else
-        {
-            Debug.Log("UIFadePrompt: CanvasGroup found, alpha = " + canvasGroup.alpha);
-        }
+            Debug.LogError("UIFadePrompt requires a CanvasGroup component!");
     }
 
     public void FadeIn()
     {
-        Debug.Log("FadeIn called");
-        if (currentFade != null)
-            StopCoroutine(currentFade);
-
         gameObject.SetActive(true);
+        if (currentFade != null) StopCoroutine(currentFade);
         currentFade = StartCoroutine(FadeCanvasGroup(1f));
     }
 
     public void FadeOut()
     {
-        Debug.Log("FadeOut called");
-        if (currentFade != null)
-            StopCoroutine(currentFade);
-
+        if (currentFade != null) StopCoroutine(currentFade);
         currentFade = StartCoroutine(FadeOutCoroutine());
     }
 
@@ -49,19 +37,15 @@ public class UIFadePrompt : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsed / fadeDuration);
-            Debug.Log($"Fading alpha: {canvasGroup.alpha}");
             yield return null;
         }
 
         canvasGroup.alpha = targetAlpha;
-        Debug.Log($"Fade complete, alpha: {canvasGroup.alpha}");
     }
 
     private IEnumerator FadeOutCoroutine()
     {
         yield return FadeCanvasGroup(0f);
         gameObject.SetActive(false);
-        currentFade = null;
-        Debug.Log("FadeOut complete and object deactivated");
     }
 }

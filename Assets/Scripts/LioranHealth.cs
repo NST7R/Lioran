@@ -1,10 +1,10 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 
 public class LioranHealth : MonoBehaviour
 {
-    [SerializeField] private int startingHealth;
+    [SerializeField] private int startingHealth = 5;
     public int currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
@@ -14,8 +14,8 @@ public class LioranHealth : MonoBehaviour
     private List<HeartUIScript> hearts;
 
     [Header("iFrames")]
-    [SerializeField] private float iFramesDuration;
-    [SerializeField] private int numberOfFlashes;
+    [SerializeField] private float iFramesDuration = 1f;
+    [SerializeField] private int numberOfFlashes = 5;
     private SpriteRenderer spriteRend;
 
     [Header("Components")]
@@ -40,7 +40,7 @@ public class LioranHealth : MonoBehaviour
                 Debug.LogWarning($"Missing HeartUIScript on {heart.name}");
         }
 
-        LoadHealth();
+        LoadHealth();  // Load saved health immediately on Awake
     }
 
     public void TakeDamage(int amount)
@@ -113,8 +113,8 @@ public class LioranHealth : MonoBehaviour
     {
         dead = false;
 
-        currentHealth = startingHealth;
-        SaveHealth();
+        // Load saved health on respawn, do NOT reset to startingHealth
+        LoadHealth();
         UpdateHeartsUI();
 
         anim.ResetTrigger("Die");
@@ -166,21 +166,20 @@ public class LioranHealth : MonoBehaviour
         isTemporarilyInvulnerable = false;
     }
 
-    // Save current health
-    public void SaveHealth()
+    private void SaveHealth()
     {
         PlayerPrefs.SetInt(HealthSaveKey, currentHealth);
         PlayerPrefs.Save();
+        Debug.Log($"Saved health: {currentHealth}");
     }
 
-    // Load saved health
-    public void LoadHealth()
+    private void LoadHealth()
     {
         currentHealth = PlayerPrefs.GetInt(HealthSaveKey, startingHealth);
         UpdateHeartsUI();
+        Debug.Log($"Loaded health: {currentHealth}");
     }
 
-    // Optional reset method
     public void ResetSavedHealth()
     {
         PlayerPrefs.DeleteKey(HealthSaveKey);

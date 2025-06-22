@@ -4,9 +4,9 @@ using System.Collections;
 
 public class TeleportToCave : MonoBehaviour
 {
-    public string sceneToLoad = "CaveScene";     // Set this in the Inspector
-    public GameObject fadeObject;                // Drag the Fade Panel GameObject here
-    public GameObject interactPrompt;            // Optional: assign UI prompt
+    public string sceneToLoad = "CaveScene";     // Set this in Inspector
+    public GameObject fadeObject;                // Assign the Fade Panel GameObject with ScreenFader component
+    public UIFadePrompt fadePrompt;               // Assign your TMP prompt GameObject with UIFadePrompt component
 
     private ScreenFader screenFader;
     private bool playerInRange = false;
@@ -18,14 +18,15 @@ public class TeleportToCave : MonoBehaviour
         {
             screenFader = fadeObject.GetComponent<ScreenFader>();
             if (screenFader == null)
-            {
-                Debug.LogError("Fade object does not have a ScreenFader component.");
-            }
+                Debug.LogError("TeleportToCave: Fade object doesn't have ScreenFader!");
         }
         else
         {
-            Debug.LogError("Fade object not assigned.");
+            Debug.LogError("TeleportToCave: Fade object not assigned!");
         }
+
+        if (fadePrompt != null)
+            fadePrompt.gameObject.SetActive(false); // start hidden
     }
 
     private void Update()
@@ -41,8 +42,8 @@ public class TeleportToCave : MonoBehaviour
         if (collision.CompareTag("Lioran"))
         {
             playerInRange = true;
-            if (interactPrompt != null)
-                interactPrompt.SetActive(true);
+            if (fadePrompt != null)
+                fadePrompt.FadeIn();
         }
     }
 
@@ -51,8 +52,8 @@ public class TeleportToCave : MonoBehaviour
         if (collision.CompareTag("Lioran"))
         {
             playerInRange = false;
-            if (interactPrompt != null)
-                interactPrompt.SetActive(false);
+            if (fadePrompt != null)
+                fadePrompt.FadeOut();
         }
     }
 
@@ -60,8 +61,8 @@ public class TeleportToCave : MonoBehaviour
     {
         isFading = true;
 
-        if (interactPrompt != null)
-            interactPrompt.SetActive(false);
+        if (fadePrompt != null)
+            fadePrompt.FadeOut();
 
         if (screenFader != null)
             yield return StartCoroutine(screenFader.FadeOut());
