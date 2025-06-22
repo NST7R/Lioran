@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     private Transform followTarget;
     private void Awake()
     {
+        interactionPromptUI.SetActive(false);
         // Singleton
         if (Instance == null) Instance = this;
         else Destroy(gameObject);

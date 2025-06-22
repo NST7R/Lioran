@@ -38180,6 +38180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes
       objectReference: {fileID: 0}
+    - target: {fileID: 5403438970409434180, guid: 39ed1035891aaa44085a926036df1de3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7816325868714179466, guid: 39ed1035891aaa44085a926036df1de3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -270.36057
@@ -38355,7 +38359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6688261878441152941, guid: d6cd2137e817fef4ea46b96ed2f9abeb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6688261878441152941, guid: d6cd2137e817fef4ea46b96ed2f9abeb, type: 3}
       propertyPath: m_TagString
