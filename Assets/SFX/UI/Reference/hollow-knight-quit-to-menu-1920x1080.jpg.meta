@@ -171,7 +171,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hollow-knight-quit-to-menu-1920x1080_0: -3822218183137301120
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

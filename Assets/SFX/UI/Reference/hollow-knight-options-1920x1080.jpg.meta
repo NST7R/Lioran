@@ -171,7 +171,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hollow-knight-options-1920x1080_0: 3401713609222080442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
