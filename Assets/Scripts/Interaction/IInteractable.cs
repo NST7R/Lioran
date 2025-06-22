@@ -13,5 +13,5 @@ public interface IInteractable
     /// <summary>
     /// Appelé quand le joueur interagit avec l’objet.
     /// </summary>
-    void Interact(Transform player);
+    void Interact();
 }

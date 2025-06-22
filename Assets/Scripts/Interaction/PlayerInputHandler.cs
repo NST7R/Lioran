@@ -21,6 +21,6 @@ public class PlayerInputHandler : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(interactKey) && currentInteractable != null)
-            currentInteractable.Interact(vfxLaunchPoint);
+            currentInteractable.Interact();
     }
 }
