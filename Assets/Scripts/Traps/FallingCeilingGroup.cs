@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
-/// Gère la création procédurale d’objets tombants déclenchés dynamiquement par un trigger.
-/// Instancie les objets au moment du déclenchement, répartis selon la largeur du trigger.
+/// Gère la génération et la chute d'objets à partir du plafond.
+/// Le joueur peut déclencher ces chutes en entrant dans une zone.
+/// Les objets sont instanciés dynamiquement, alignés selon un pattern.
+/// Ce système peut être déclenché plusieurs fois.
 /// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
 public class FallingCeilingGroup : MonoBehaviour
@@ -12,37 +14,49 @@ public class FallingCeilingGroup : MonoBehaviour
     public enum FallPattern { LeftToRight, RightToLeft, CenterOut, Adaptive }
 
     [Header("Réglages")]
+    [Tooltip("Prefab de l’objet à faire tomber (avec Rigidbody2D)")]
     [SerializeField] private GameObject fallingObjectPrefab;
+
+    [Tooltip("Espace horizontal entre chaque objet instancié")]
     [SerializeField] private float spacing = 1.0f;
+
+    [Tooltip("Délai entre chaque chute")]
     [SerializeField] private float fallDelay = 0.2f;
+
+    [Tooltip("Schéma de chute (gauche à droite, etc.)")]
     [SerializeField] private FallPattern fallPattern = FallPattern.LeftToRight;
 
-    private List<GameObject> spawnedObjects = new List<GameObject>();
+    [Tooltip("Zone de déclenchement (doit avoir une largeur définie)")]
     [SerializeField] private GameObject areaCollider;
-    private bool hasTriggered = false;
+
+    // Liste des objets instanciés dans la scène
+    private List<GameObject> spawnedObjects = new List<GameObject>();
+
+    // Évite de lancer plusieurs coroutines simultanément
+    private bool isFalling = false;
 
     /// <summary>
-    /// Déclenche la création et la chute des objets en fonction du pattern choisi.
+    /// Appelée par le trigger : commence la chute selon le pattern défini.
     /// </summary>
     public void TriggerFall(Transform player)
     {
-        if (hasTriggered) return;
-        hasTriggered = true;
+        if (isFalling) return;
 
         float width = areaCollider.transform.localScale.x * transform.localScale.x;
         int objectCount = Mathf.FloorToInt(width / spacing);
 
         if (objectCount <= 0)
         {
-            Debug.LogWarning("Largeur du trigger insuffisante pour générer des objets tombants.");
+            Debug.LogWarning("Zone trop petite pour générer des objets tombants.");
             return;
         }
 
+        isFalling = true;
         StartCoroutine(SpawnAndFallCoroutine(objectCount, player));
     }
 
     /// <summary>
-    /// Coroutine principale de génération et d’activation différée.
+    /// Coroutine principale de génération + activation progressive.
     /// </summary>
     private IEnumerator SpawnAndFallCoroutine(int objectCount, Transform player)
     {
@@ -51,28 +65,32 @@ public class FallingCeilingGroup : MonoBehaviour
         float width = areaCollider.transform.localScale.x * transform.localScale.x;
         Vector3 leftEdge = transform.position - new Vector3(width / 2f, 0f, 0f);
 
+        // Instanciation des objets inactifs
         for (int i = 0; i < objectCount; i++)
         {
             Vector3 spawnPos = leftEdge + new Vector3(i * spacing, 0f, 0f);
             GameObject clone = Instantiate(fallingObjectPrefab, spawnPos, Quaternion.identity);
-            clone.SetActive(false);
+            clone.SetActive(false); // Inactif jusqu'à déclenchement
             spawnedObjects.Add(clone);
-            Debug.LogWarning("objet créé"+i+1);
         }
 
-        yield return new WaitForEndOfFrame(); // Assure l’instanciation complète avant activation
+        yield return new WaitForEndOfFrame(); // Sécurité : attendre une frame
 
+        // Déclenche le bon pattern
         switch (fallPattern)
         {
             case FallPattern.LeftToRight:
                 yield return StartCoroutine(FallInOrder(0, 1));
                 break;
+
             case FallPattern.RightToLeft:
                 yield return StartCoroutine(FallInOrder(spawnedObjects.Count - 1, -1));
                 break;
+
             case FallPattern.CenterOut:
                 yield return StartCoroutine(FallFromCenter());
                 break;
+
             case FallPattern.Adaptive:
                 bool playerOnRight = player.position.x > transform.position.x;
                 yield return StartCoroutine(playerOnRight
@@ -80,8 +98,14 @@ public class FallingCeilingGroup : MonoBehaviour
                     : FallInOrder(0, 1));
                 break;
         }
+
+        yield return new WaitForSeconds(1f); // Anti-spam simple
+        isFalling = false;
     }
 
+    /// <summary>
+    /// Chute linéaire dans un ordre (ex: gauche à droite).
+    /// </summary>
     private IEnumerator FallInOrder(int startIndex, int step)
     {
         int count = spawnedObjects.Count;
@@ -92,13 +116,14 @@ public class FallingCeilingGroup : MonoBehaviour
             if (index >= 0 && index < count)
             {
                 ActivateObject(index);
-                Debug.LogWarning("objet activé"+i+1);
                 yield return new WaitForSeconds(fallDelay);
-                Debug.LogWarning("objet après délais"+fallDelay);
             }
         }
     }
 
+    /// <summary>
+    /// Chute symétrique à partir du centre.
+    /// </summary>
     private IEnumerator FallFromCenter()
     {
         int center = spawnedObjects.Count / 2;
@@ -121,9 +146,22 @@ public class FallingCeilingGroup : MonoBehaviour
             offset++;
         }
     }
+/// <summary>
+/// Calcule la durée totale de chute basée sur le nombre d’objets et le délai entre chaque.
+/// </summary>
+public float GetFallDuration()
+{
+    if (areaCollider == null) return 0f;
+
+    float width = areaCollider.transform.localScale.x * transform.localScale.x;
+    int objectCount = Mathf.FloorToInt(width / spacing);
+
+    return objectCount * fallDelay;
+}
+
 
     /// <summary>
-    /// Active un objet et déclenche sa chute en le passant en Rigidbody2D.Dynamic.
+    /// Active un objet et déclenche sa chute (Rigidbody2D dynamique).
     /// </summary>
     private void ActivateObject(int index)
     {
