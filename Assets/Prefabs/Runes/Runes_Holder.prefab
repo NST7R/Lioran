@@ -956,10 +956,15 @@ MonoBehaviour:
   - {fileID: 8634051445198137888, guid: f4a42b326663e4545a9af0ef9b2241f4, type: 3}
   - {fileID: 4117266994268045744, guid: 4dd9b54e336425e46a5b83ee20453441, type: 3}
   chargingVFXPrefab: {fileID: 4380505005903839624, guid: ba5c4229722e8e646ba43a04c4b7c8fd, type: 3}
-  playerCamera: {fileID: 0}
+  lioranCamera: {fileID: 0}
   runeCamera: {fileID: 9061761523482849392}
   cameraShowTime: 2
   screenFader: {fileID: 0}
+  lioranRigidbody: {fileID: 0}
+  lioranAnimator: {fileID: 0}
+  lioranHealth: {fileID: 0}
+  barrier: {fileID: 0}
+  barrierCamera: {fileID: 0}
 --- !u!1 &6911302670719971445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +1128,7 @@ Camera:
   field of view: 34
   orthographic: 1
   orthographic size: 17.12
-  m_Depth: -1
+  m_Depth: 3
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

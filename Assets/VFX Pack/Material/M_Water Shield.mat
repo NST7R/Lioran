@@ -77,16 +77,16 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
-    - _Dissolve: 10.84
+    - _Dissolve: 0
     - _Dissolve_edge_thickness: 0.27
     - _Dissolve_emission: 600
-    - _Distortion_Power: -0.2
+    - _Distortion_Power: -0.3
     - _Emission: 20
     - _Fresnel_Power: 5
     - _Ground_Highlight: 0.29
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Texture_opacity: 2.35
+    - _Texture_opacity: 1
     m_Colors:
     - _Speed_Main_UV_Noise: {r: 0.12, g: -0.3, b: 0, a: 0}
   m_BuildTextureStacks: []

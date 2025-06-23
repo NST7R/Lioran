@@ -23,6 +23,7 @@ public class Rune2D : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Lioran").transform;
+
     }
 
     void Update()
