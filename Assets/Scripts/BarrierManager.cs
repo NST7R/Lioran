@@ -44,11 +44,11 @@ public class BarrierManager : MonoBehaviour
             float t = dissolveCurve.Evaluate(timer / dissolveDuration);
             float dissolveValue = Mathf.Lerp(5f, 0f, t);
             dissolveMaterial.SetFloat("_Dissolve", dissolveValue);
-            if (runeSpawnEffect != null) runeSpawnEffect.SetActive(false);
             yield return null;
         }
         yield return new WaitForSeconds(3f);
         if (barrierCollider != null) barrierCollider.enabled = false;
+        if (runeSpawnEffect != null) runeSpawnEffect.SetActive(false);
         if (auraEffect != null) auraEffect.SetActive(false);
     }
 }
