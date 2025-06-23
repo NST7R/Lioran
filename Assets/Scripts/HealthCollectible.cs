@@ -6,11 +6,21 @@ public class HealthCollectible : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Lioran")
+        if (collision.CompareTag("Lioran"))
         {
-            collision.GetComponent<LioranHealth>().AddHealth(healthValue);
-            AudioManager.Instance?.PlaySFX(AudioManager.Instance.healthRestoreClip);
-            gameObject.SetActive(false);
+            var health = collision.GetComponent<LioranHealth>();
+
+            // Only add health if currentHealth is less than startingHealth (max health)
+            if (health.currentHealth < health.startingHealth)
+            {
+                health.AddHealth(healthValue);
+                AudioManager.Instance?.PlaySFX(AudioManager.Instance.healthRestoreClip);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("[HealthCollectible] Player health full, cannot pick up.");
+            }
         }
     }
 }

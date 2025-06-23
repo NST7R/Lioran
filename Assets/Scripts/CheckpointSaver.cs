@@ -1,35 +1,39 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckpointSaver : MonoBehaviour
 {
-    private bool checkpointUsed = false;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Lioran") || checkpointUsed) return;
-
-        string scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        Vector3 pos = transform.position;
-        string checkpointKey = scene + "_Checkpoint_" + pos.x + "_" + pos.y;
-
-        if (PlayerPrefs.HasKey(checkpointKey))
+        if (collision.CompareTag("Lioran"))
         {
-            checkpointUsed = true;
-            GetComponent<Collider2D>().enabled = false;
-            return; // Already saved, don't repeat
+            string scene = SceneManager.GetActiveScene().name;
+            float savedX = PlayerPrefs.GetFloat(scene + "_SavedX", float.MinValue);
+            float savedY = PlayerPrefs.GetFloat(scene + "_SavedY", float.MinValue);
+
+            if (savedX != transform.position.x || savedY != transform.position.y)
+            {
+                PlayerPrefs.SetFloat(scene + "_SavedX", transform.position.x);
+                PlayerPrefs.SetFloat(scene + "_SavedY", transform.position.y);
+                PlayerPrefs.Save();
+
+                AudioManager.Instance?.PlaySFX(AudioManager.Instance.checkpointClip);
+
+                Debug.Log($"Checkpoint saved at {transform.position} in scene: {scene}");
+
+                // Force player health UI update
+                var playerHealth = collision.GetComponent<LioranHealth>();
+                if (playerHealth != null)
+                {
+                    playerHealth.LoadHealth();
+                    playerHealth.UpdateHeartsUI();
+                    Debug.Log("Player health UI updated immediately after checkpoint set.");
+                }
+            }
+            else
+            {
+                Debug.Log("Checkpoint already active, no sound played.");
+            }
         }
-
-        PlayerPrefs.SetFloat(scene + "_SavedX", pos.x);
-        PlayerPrefs.SetFloat(scene + "_SavedY", pos.y);
-        PlayerPrefs.SetString("SavedScene", scene);
-        PlayerPrefs.SetInt(checkpointKey, 1);
-        PlayerPrefs.Save();
-
-        AudioManager.Instance?.PlaySFX(AudioManager.Instance.checkpointClip);
-
-        checkpointUsed = true;
-        GetComponent<Collider2D>().enabled = false; // Disable so no retrigger
-
-        Debug.Log($"Checkpoint saved at {pos} in scene: {scene}");
     }
 }

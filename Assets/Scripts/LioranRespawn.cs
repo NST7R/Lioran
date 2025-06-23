@@ -9,39 +9,71 @@ public class LioranRespawn : MonoBehaviour
     private void Awake()
     {
         lioranHealth = GetComponent<LioranHealth>();
+        LoadPositionAndHealth();
+    }
 
-        LoadCheckpointPosition();
+    private void LoadPositionAndHealth()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (PlayerPrefs.HasKey(currentScene + "_SavedX") && PlayerPrefs.HasKey(currentScene + "_SavedY"))
+        {
+            float x = PlayerPrefs.GetFloat(currentScene + "_SavedX");
+            float y = PlayerPrefs.GetFloat(currentScene + "_SavedY");
+            Vector3 savedPos = new Vector3(x, y, transform.position.z);
+            transform.position = savedPos;
+            Debug.Log($"[Respawn] Loaded checkpoint position {savedPos} for scene '{currentScene}'.");
+        }
+        else
+        {
+            Debug.Log("[Respawn] No saved checkpoint position for current scene, spawning at default.");
+            SpawnAtDefault();
+        }
+
+        // ✅ Force health load and UI update after repositioning
+        if (lioranHealth != null)
+        {
+            lioranHealth.LoadHealth();
+            lioranHealth.UpdateHeartsUI();
+            Debug.Log("[Respawn] Forced UI sync after scene load.");
+        }
+    }
+
+    private void SpawnAtDefault()
+    {
+        if (defaultSpawnPoint != null)
+            transform.position = defaultSpawnPoint.position;
+        else
+            Debug.LogWarning("[Respawn] Default spawn point not set.");
     }
 
     public void Respawn()
     {
-        LoadCheckpointPosition();
-
-        // Restore health and reset state
-        lioranHealth.ResetSavedHealth();
-        lioranHealth.Respawn();
+        if (lioranHealth != null)
+        {
+            lioranHealth.Respawn();
+        }
+        LoadPositionAndHealth();
+        Debug.Log("[Respawn] Player respawned.");
     }
 
-    private void LoadCheckpointPosition()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        string scene = SceneManager.GetActiveScene().name;
+        if (collision.CompareTag("CheckPoint"))
+        {
+            Vector3 checkpointPos = collision.transform.position;
+            string currentScene = SceneManager.GetActiveScene().name;
 
-        if (PlayerPrefs.HasKey(scene + "_SavedX") && PlayerPrefs.HasKey(scene + "_SavedY"))
-        {
-            float x = PlayerPrefs.GetFloat(scene + "_SavedX");
-            float y = PlayerPrefs.GetFloat(scene + "_SavedY");
-            transform.position = new Vector3(x, y, transform.position.z);
+            PlayerPrefs.SetFloat(currentScene + "_SavedX", checkpointPos.x);
+            PlayerPrefs.SetFloat(currentScene + "_SavedY", checkpointPos.y);
+            PlayerPrefs.Save();
 
-            Debug.Log($"[Respawn] Loaded checkpoint position {transform.position} for scene '{scene}'");
-        }
-        else if (defaultSpawnPoint != null)
-        {
-            transform.position = defaultSpawnPoint.position;
-            Debug.Log($"[Respawn] No saved checkpoint for scene '{scene}', using default spawn point {transform.position}.");
-        }
-        else
-        {
-            Debug.LogWarning("[Respawn] No checkpoint or default spawn point set!");
+            AudioManager.Instance?.PlaySFX(AudioManager.Instance.checkpointClip);
+
+            Debug.Log($"[Respawn] Checkpoint saved at {checkpointPos} in scene '{currentScene}'.");
+
+            // Optional: disable collider to prevent multiple triggers
+            // collision.GetComponent<Collider2D>().enabled = false;
         }
     }
 }

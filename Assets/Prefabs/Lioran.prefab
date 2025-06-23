@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 2199812554730121640}
   - component: {fileID: 5899770095506610042}
   - component: {fileID: 4727802257150841944}
+  - component: {fileID: 3568723787228465930}
   m_Layer: 8
   m_Name: Lioran
   m_TagString: Lioran
@@ -301,8 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3f12db2eee20b43bd8db912e2ca425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactKey: 101
-  vfxLaunchPoint: {fileID: 0}
 --- !u!114 &4727802257150841944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +312,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd94f74a1f433cc449da8c95e308460a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3568723787228465930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3254421808779290698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da791afe6c782c74e94081db53a31533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9148661704999678436
@@ -5113,9 +5124,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1200088065
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 110
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -5274,15 +5285,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2282438384830233659, guid: 7697a49ea05824642b45a2fab61c81c4, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2282438384830233659, guid: 7697a49ea05824642b45a2fab61c81c4, type: 3}
-      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2282438384830233659, guid: 7697a49ea05824642b45a2fab61c81c4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282438384830233659, guid: 7697a49ea05824642b45a2fab61c81c4, type: 3}
       propertyPath: m_SortingLayerID
-      value: -1981621469
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2282438384830233660, guid: 7697a49ea05824642b45a2fab61c81c4, type: 3}
       propertyPath: m_LocalPosition.x

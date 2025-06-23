@@ -1,10 +1,10 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LioranHealth : MonoBehaviour
 {
-    [SerializeField] private int startingHealth = 5;
+    public int startingHealth = 5;  // made public as requested
     public int currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
@@ -40,12 +40,20 @@ public class LioranHealth : MonoBehaviour
                 Debug.LogWarning($"Missing HeartUIScript on {heart.name}");
         }
 
-        LoadHealth();  // Load saved health immediately on Awake
+        LoadHealth(); // Load saved health immediately
+    }
+
+    // 🟢 Move UI update to Start, where it's guaranteed that heart scripts are ready
+    private void Start()
+    {
+        UpdateHeartsUI();
     }
 
     public void TakeDamage(int amount)
     {
         if (dead || amount <= 0 || isTemporarilyInvulnerable) return;
+
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.hurtClip);
 
         int previousHealth = currentHealth;
         currentHealth = Mathf.Max(currentHealth - amount, 0);
@@ -68,26 +76,11 @@ public class LioranHealth : MonoBehaviour
         }
     }
 
-    public void AddHealth(int amount)
-    {
-        if (dead || amount <= 0) return;
-
-        int previousHealth = currentHealth;
-        currentHealth = Mathf.Min(currentHealth + amount, startingHealth);
-        SaveHealth();
-
-        for (int i = previousHealth; i < currentHealth; i++)
-        {
-            if (i < hearts.Count)
-                hearts[i].PlayGainAnimation();
-        }
-
-        AudioManager.Instance?.PlaySFX(AudioManager.Instance.healthRestoreClip);
-    }
-
     private void Die()
     {
         if (dead) return;
+
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.hurtClip); // You can change to a dieClip if you want
 
         anim.SetTrigger("Die");
         GetComponent<LioranMovement>().enabled = false;
@@ -115,8 +108,15 @@ public class LioranHealth : MonoBehaviour
     {
         dead = false;
 
-        LoadHealth();
-        UpdateHeartsUI();
+        LoadHealth();      // Reload saved health on respawn
+        
+        if (currentHealth <= 0)
+        {
+            currentHealth = startingHealth;  // Restore at least full or minimal health
+            SaveHealth();
+        }
+
+        UpdateHeartsUI();  // Update UI immediately
 
         anim.ResetTrigger("Die");
         anim.Play("LioranIdle");
@@ -129,11 +129,15 @@ public class LioranHealth : MonoBehaviour
             movement.enabled = true;
 
         StartCoroutine(Invulnerability());
-
-        AudioManager.Instance?.PlaySFX(AudioManager.Instance.respawnClip);
     }
 
-    private void UpdateHeartsUI()
+    public void LoadHealth()
+    {
+        currentHealth = PlayerPrefs.GetInt(HealthSaveKey, startingHealth);
+        Debug.Log($"[LioranHealth] Loaded health: {currentHealth}");
+    }
+
+    public void UpdateHeartsUI()
     {
         for (int i = 0; i < hearts.Count; i++)
         {
@@ -142,6 +146,29 @@ public class LioranHealth : MonoBehaviour
             else
                 hearts[i].PlayLoseAnimation();
         }
+        Debug.Log("[LioranHealth] Hearts UI updated.");
+    }
+
+    public void AddHealth(int amount)
+    {
+        if (dead || amount <= 0) return;
+
+        int previousHealth = currentHealth;
+        currentHealth = Mathf.Min(currentHealth + amount, startingHealth);
+        SaveHealth();
+
+        for (int i = previousHealth; i < currentHealth; i++)
+        {
+            if (i < hearts.Count)
+                hearts[i].PlayGainAnimation();
+        }
+    }
+
+    private void SaveHealth()
+    {
+        PlayerPrefs.SetInt(HealthSaveKey, currentHealth);
+        PlayerPrefs.Save();
+        Debug.Log($"[LioranHealth] Saved health: {currentHealth}");
     }
 
     private IEnumerator Invulnerability()
@@ -169,25 +196,8 @@ public class LioranHealth : MonoBehaviour
         isTemporarilyInvulnerable = false;
     }
 
-    private void SaveHealth()
-    {
-        PlayerPrefs.SetInt(HealthSaveKey, currentHealth);
-        PlayerPrefs.Save();
-        Debug.Log($"Saved health: {currentHealth}");
-    }
-
-    private void LoadHealth()
-    {
-        int savedHealth = PlayerPrefs.GetInt(HealthSaveKey, startingHealth);
-        currentHealth = Mathf.Max(savedHealth, 1); // prevent 0 health loops
-        UpdateHeartsUI();
-        Debug.Log($"Loaded health: {currentHealth}");
-    }
-
     public void ResetSavedHealth()
     {
-        PlayerPrefs.SetInt(HealthSaveKey, startingHealth);
-        PlayerPrefs.Save();
-        Debug.Log("Health reset to full at checkpoint.");
+        PlayerPrefs.DeleteKey(HealthSaveKey);
     }
 }

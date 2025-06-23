@@ -77,7 +77,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
-    - _Dissolve: 0
+    - _Dissolve: 5
     - _Dissolve_edge_thickness: 0.27
     - _Dissolve_emission: 600
     - _Distortion_Power: -0.3
