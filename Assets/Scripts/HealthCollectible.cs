@@ -9,6 +9,7 @@ public class HealthCollectible : MonoBehaviour
         if (collision.tag == "Lioran")
         {
             collision.GetComponent<LioranHealth>().AddHealth(healthValue);
+            AudioManager.Instance?.PlaySFX(AudioManager.Instance.healthRestoreClip);
             gameObject.SetActive(false);
         }
     }

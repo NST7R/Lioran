@@ -1258,6 +1258,100 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e9b2cd11ddc300419003fab43b07109, type: 3}
+--- !u!1001 &77830735
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.71508
+      objectReference: {fileID: 0}
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -83.341484
+      objectReference: {fileID: 0}
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8565232
+      objectReference: {fileID: 0}
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94975557022291802, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 991247397416381442, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321292269788865119, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321292269788865119, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 2df912b6b8208ba4ca78b591c194e555, type: 3}
+    - target: {fileID: 1321292269788865119, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2df912b6b8208ba4ca78b591c194e555, type: 3}
+    - target: {fileID: 4288103554677850450, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: c2acde7da6aebc84db0f424cf8e8f956, type: 3}
+    - target: {fileID: 4288103554677850450, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c2acde7da6aebc84db0f424cf8e8f956, type: 3}
+    - target: {fileID: 7710405408379640747, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197300405042046689, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: music2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197300405042046689, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: runLoopClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 30bd50ed928ffe343bc1dd1512b92c37, type: 3}
+    - target: {fileID: 9197300405042046689, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+      propertyPath: runeInsertClip
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 8845419916489615779, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 941a9c3b721363f4580575a6a9c6a40c, type: 3}
 --- !u!1 &80274456
 GameObject:
   m_ObjectHideFlags: 0
@@ -27064,3 +27158,4 @@ SceneRoots:
   - {fileID: 1623486284}
   - {fileID: 1211328721}
   - {fileID: 694023118}
+  - {fileID: 77830735}

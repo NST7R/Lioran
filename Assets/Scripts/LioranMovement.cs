@@ -18,6 +18,8 @@ public class LioranMovement : MonoBehaviour
     private MovingPlatform currentPlatform;
     private Vector2 platformVelocity = Vector2.zero;
 
+    private bool wasGroundedLastFrame = true;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,57 +31,69 @@ public class LioranMovement : MonoBehaviour
 
     void Update()
     {
-        // Update platform velocity from current platform
+        // Update platform velocity
         if (currentPlatform != null)
         {
             Rigidbody2D platformRb = currentPlatform.GetComponent<Rigidbody2D>();
-            if (platformRb != null)
-            {
-                platformVelocity = platformRb.velocity;
-            }
-            else
-            {
-                platformVelocity = Vector2.zero;
-            }
+            platformVelocity = platformRb != null ? platformRb.velocity : Vector2.zero;
         }
         else
         {
             platformVelocity = Vector2.zero;
         }
 
-        // Flip sprite based on input
         float horizontalInput = Input.GetAxis("Horizontal");
+
+        // Flip sprite
         if (horizontalInput > 0.01f)
             transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
 
-        // Jump input
+        // Jump
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
         {
             Jump();
         }
 
-        // Reset jump count if on ground
+        // Reset jump count if grounded
         if (onGround())
         {
             jumpCount = 0;
         }
 
-        // Update animator parameters
+        // Update animator
         animation.SetFloat("yVelocity", rb.velocity.y);
         animation.SetBool("onGround", onGround());
         animation.SetBool("Walk", Mathf.Abs(horizontalInput) > 0.01f);
+
+        // FALL SFX: only once when leaving ground
+        if (wasGroundedLastFrame && !onGround() && rb.velocity.y < 0)
+        {
+            AudioManager.Instance?.PlaySFX(AudioManager.Instance.fallClip);
+        }
+
+        // RUN LOOP: when moving and grounded
+        bool isMoving = Mathf.Abs(horizontalInput) > 0.01f;
+        bool isOnGround = onGround();
+
+        if (isMoving && isOnGround)
+        {
+            AudioManager.Instance?.StartRunLoop();
+        }
+        else
+        {
+            AudioManager.Instance?.StopRunLoop();
+        }
+
+        wasGroundedLastFrame = isOnGround;
     }
 
     void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        // Base player horizontal velocity
         Vector2 inputVelocity = new Vector2(horizontalInput * speed, rb.velocity.y);
-
-        // Add platform horizontal velocity if standing on a platform
         Vector2 totalVelocity = inputVelocity + new Vector2(platformVelocity.x, 0);
 
         rb.velocity = totalVelocity;
@@ -90,6 +104,7 @@ public class LioranMovement : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         animation.SetTrigger("Jump");
         jumpCount++;
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.jumpClip);
     }
 
     private bool onGround()
@@ -102,7 +117,6 @@ public class LioranMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("platform"))
         {
-            // Only assign platform if player is landing on top
             if (transform.position.y > collision.transform.position.y)
             {
                 currentPlatform = collision.collider.GetComponent<MovingPlatform>();

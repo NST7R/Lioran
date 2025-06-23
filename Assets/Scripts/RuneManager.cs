@@ -70,6 +70,7 @@ public class RuneManager : MonoBehaviour
         yield return StartCoroutine(screenFader.FadeIn());
 
         GameObject vfx = Instantiate(chargingVFXPrefab, slot.position + new Vector3(0, 0, -5), Quaternion.identity);
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.runeInsertClip);
         vfx.transform.SetParent(slot);
 
         yield return new WaitForSeconds(1.58f);

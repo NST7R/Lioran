@@ -81,6 +81,8 @@ public class LioranHealth : MonoBehaviour
             if (i < hearts.Count)
                 hearts[i].PlayGainAnimation();
         }
+
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.healthRestoreClip);
     }
 
     private void Die()
@@ -113,7 +115,6 @@ public class LioranHealth : MonoBehaviour
     {
         dead = false;
 
-        // Load saved health on respawn, do NOT reset to startingHealth
         LoadHealth();
         UpdateHeartsUI();
 
@@ -128,6 +129,8 @@ public class LioranHealth : MonoBehaviour
             movement.enabled = true;
 
         StartCoroutine(Invulnerability());
+
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.respawnClip);
     }
 
     private void UpdateHeartsUI()
@@ -175,13 +178,16 @@ public class LioranHealth : MonoBehaviour
 
     private void LoadHealth()
     {
-        currentHealth = PlayerPrefs.GetInt(HealthSaveKey, startingHealth);
+        int savedHealth = PlayerPrefs.GetInt(HealthSaveKey, startingHealth);
+        currentHealth = Mathf.Max(savedHealth, 1); // prevent 0 health loops
         UpdateHeartsUI();
         Debug.Log($"Loaded health: {currentHealth}");
     }
 
     public void ResetSavedHealth()
     {
-        PlayerPrefs.DeleteKey(HealthSaveKey);
+        PlayerPrefs.SetInt(HealthSaveKey, startingHealth);
+        PlayerPrefs.Save();
+        Debug.Log("Health reset to full at checkpoint.");
     }
 }

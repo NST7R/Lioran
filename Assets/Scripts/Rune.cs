@@ -69,6 +69,7 @@ public class Rune2D : MonoBehaviour
             pickupEffect.Play();
             Destroy(pickupEffect.gameObject, 1f);
         }
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.runeCollectClip);
 
         // Optional: delay to show effects before destroying
         Destroy(gameObject, 0.1f);
