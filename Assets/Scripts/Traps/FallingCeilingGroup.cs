@@ -156,7 +156,7 @@ public float GetFallDuration()
     float width = areaCollider.transform.localScale.x * transform.localScale.x;
     int objectCount = Mathf.FloorToInt(width / spacing);
 
-    return objectCount * fallDelay;
+        return fallDelay;//(objectCount * fallDelay)- (fallDelay*2);
 }
 
 
