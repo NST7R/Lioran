@@ -165,7 +165,7 @@ public class AudioManager : MonoBehaviour
         PlaySFX(uiHoverClip);
     }
 
-    private void StopAllSounds()
+    public void StopAllSounds()
     {
         musicSource1.Stop();
         musicSource2.Stop();

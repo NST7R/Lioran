@@ -7,7 +7,7 @@ public class FadeManager : MonoBehaviour
 {
     public static FadeManager Instance;
 
-    [SerializeField] private Image fadeImage; // Assign this in Inspector
+    [SerializeField] public Image fadeImage; // Assign this in Inspector
     [SerializeField] private float defaultFadeDuration = 1f;
 
     private void Awake()
