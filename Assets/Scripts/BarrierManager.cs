@@ -50,5 +50,6 @@ public class BarrierManager : MonoBehaviour
         if (barrierCollider != null) barrierCollider.enabled = false;
         if (runeSpawnEffect != null) runeSpawnEffect.SetActive(false);
         if (auraEffect != null) auraEffect.SetActive(false);
+        
     }
 }

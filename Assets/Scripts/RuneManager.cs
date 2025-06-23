@@ -26,7 +26,7 @@ public class RuneManager : MonoBehaviour
     private RigidbodyConstraints2D originalConstraints;
 
     [Header("Barrier Cinematic")]
-    public BarrierManager barrier;
+    public BarrierManager[] allBarriers;
     public Camera barrierCamera;
 
     void OnEnable()
@@ -108,8 +108,11 @@ public class RuneManager : MonoBehaviour
 
         yield return StartCoroutine(screenFader.FadeIn());
 
-        if (barrier != null)
-            barrier.StartDissolve();
+        foreach (var b in allBarriers)
+        {
+            if (b != null)
+                b.StartDissolve();
+        }
 
         yield return new WaitForSeconds(cameraShowTime+1f);
 
