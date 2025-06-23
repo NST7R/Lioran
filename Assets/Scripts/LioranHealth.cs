@@ -79,8 +79,7 @@ public class LioranHealth : MonoBehaviour
     private void Die()
     {
         if (dead) return;
-
-        AudioManager.Instance?.PlaySFX(AudioManager.Instance.hurtClip); // You can change to a dieClip if you want
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.hurtClip);// You can change to a dieClip if you want
 
         anim.SetTrigger("Die");
         GetComponent<LioranMovement>().enabled = false;

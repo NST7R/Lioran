@@ -35,19 +35,17 @@ public class MainMenuScript : MonoBehaviour
         // 1. Fade out UI
         yield return FadeManager.Instance.FadeOut(1f);
 
-        // 2. Stop all music
-        if (AudioManager.Instance != null)
-            AudioManager.Instance.StopAllSounds();
+        // 2. Stop all sounds
+        AudioManager.Instance?.StopAllSounds();
 
-        // 3. Show video screen and fade in
+        // 3. Show cutscene and fade in
         cutsceneScreen.gameObject.SetActive(true);
         cutscenePlayer.gameObject.SetActive(true);
         cutscenePlayer.Play();
 
-        // Fade in cutscene (from black to visible)
         yield return FadeManager.Instance.FadeIn(1f);
 
-        // 4. Wait for video to finish
+        // 4. Wait until video finishes
         while (cutscenePlayer.isPlaying)
         {
             yield return null;
@@ -56,15 +54,36 @@ public class MainMenuScript : MonoBehaviour
         // 5. Fade out after video
         yield return FadeManager.Instance.FadeOut(1f);
 
-        // 6. Hide video screen
+        // 6. Hide cutscene visuals
         cutscenePlayer.gameObject.SetActive(false);
         cutsceneScreen.gameObject.SetActive(false);
 
-        // 7. Load the next scene
+        // 7. Load first scene and hook up callback to restore audio
+        SceneManager.sceneLoaded += OnFirstSceneLoaded;
         SceneManager.LoadScene(firstScene);
     }
 
+    // Called once after scene loads to restore music/ambience/run audio
+    private void OnFirstSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnFirstSceneLoaded;
+        StartCoroutine(DelayedAudioSetup());
+    }
 
+    private IEnumerator DelayedAudioSetup()
+    {
+        yield return null; // wait one frame
+
+        if (AudioManager.Instance != null)
+        {
+            // Reinitialize audio properly
+            AudioManager.Instance.StopAllSounds(); // clear old state
+
+            // AudioManager.OnSceneLoaded will run automatically
+            // Optionally start the run loop now if needed
+            AudioManager.Instance.StartRunLoop();
+        }
+    }
 
     public void ContinueGame()
     {

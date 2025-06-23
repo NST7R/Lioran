@@ -30,7 +30,6 @@ public class LioranRespawn : MonoBehaviour
             SpawnAtDefault();
         }
 
-        // ✅ Force health load and UI update after repositioning
         if (lioranHealth != null)
         {
             lioranHealth.LoadHealth();
@@ -53,27 +52,12 @@ public class LioranRespawn : MonoBehaviour
         {
             lioranHealth.Respawn();
         }
+
         LoadPositionAndHealth();
+
+        // ✅ Play respawn sound here
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance.respawnClip);
+
         Debug.Log("[Respawn] Player respawned.");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("CheckPoint"))
-        {
-            Vector3 checkpointPos = collision.transform.position;
-            string currentScene = SceneManager.GetActiveScene().name;
-
-            PlayerPrefs.SetFloat(currentScene + "_SavedX", checkpointPos.x);
-            PlayerPrefs.SetFloat(currentScene + "_SavedY", checkpointPos.y);
-            PlayerPrefs.Save();
-
-            AudioManager.Instance?.PlaySFX(AudioManager.Instance.checkpointClip);
-
-            Debug.Log($"[Respawn] Checkpoint saved at {checkpointPos} in scene '{currentScene}'.");
-
-            // Optional: disable collider to prevent multiple triggers
-            // collision.GetComponent<Collider2D>().enabled = false;
-        }
     }
 }
