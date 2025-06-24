@@ -77,11 +77,11 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
-    - _Dissolve: 5
+    - _Dissolve: 2.15
     - _Dissolve_edge_thickness: 0.27
     - _Dissolve_emission: 600
     - _Distortion_Power: -0.3
-    - _Emission: 20
+    - _Emission: 2.39
     - _Fresnel_Power: 5
     - _Ground_Highlight: 0.29
     - _QueueControl: 0
