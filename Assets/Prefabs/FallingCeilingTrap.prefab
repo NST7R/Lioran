@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5741668971193963423}
   - component: {fileID: 3730105836708390132}
   - component: {fileID: 5125841009514273556}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TriggerZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1299931774431306049}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -24.93, z: 0}
-  m_LocalScale: {x: 13.09425, y: 0.99, z: 1}
+  m_LocalPosition: {x: 22.132, y: -71.21, z: 0}
+  m_LocalScale: {x: 57.352814, y: 93.56114, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8466834369811883386}
@@ -138,7 +138,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 79b8191170cb6184c9988ce229993fbf, type: 3}
-  m_Color: {r: 0.90188676, g: 0.18888573, b: 0.18888573, a: 0.3019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 6910538712381526256}
   - component: {fileID: 3371729491887972693}
   - component: {fileID: 6064552144086399498}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FallingCeilingTrap
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingObjectPrefab: {fileID: 6041836287513395125, guid: abfcd7e1e793dac4d9b68ae862140a0a, type: 3}
   spacing: 1
-  fallDelay: 0.2
+  fallDelay: 1
   fallPattern: 2
   areaCollider: {fileID: 1299931774431306049}
 --- !u!61 &3371729491887972693

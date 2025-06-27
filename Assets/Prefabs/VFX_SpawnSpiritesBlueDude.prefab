@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2227898819820308624}
   - component: {fileID: 5732477087607011786}
   - component: {fileID: 5763926565891045259}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 'Magic Dust_Spawn '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4974,7 +4974,7 @@ GameObject:
   - component: {fileID: 6020468856452751356}
   - component: {fileID: 5989311439937319925}
   - component: {fileID: 2384402114482349622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Magic Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9807,7 +9807,7 @@ GameObject:
   - component: {fileID: 352810811275583916}
   - component: {fileID: 2142544249181798035}
   - component: {fileID: 4016960097576435319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14700,7 +14700,7 @@ GameObject:
   - component: {fileID: 9192936624610984015}
   - component: {fileID: 683606778447720576}
   - component: {fileID: 2577712330310207725}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VFX_SpawnSpiritesBlueDude
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19619,7 +19619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d949ef8ff4c9c4e8054884e05c0422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxDuration: 2.5
 --- !u!1 &5749893538941086521
 GameObject:
   m_ObjectHideFlags: 0
@@ -19631,7 +19630,7 @@ GameObject:
   - component: {fileID: 6037826522187969203}
   - component: {fileID: 8963897024246970383}
   - component: {fileID: 5439787507470714268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leafs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24540,7 +24539,7 @@ GameObject:
   - component: {fileID: 4045127463088890506}
   - component: {fileID: 378471864816938751}
   - component: {fileID: 4758373651929618969}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: outerGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29432,7 +29431,7 @@ GameObject:
   - component: {fileID: 6742947907287675166}
   - component: {fileID: 627231666486376770}
   - component: {fileID: 7133858856323728170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spirit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

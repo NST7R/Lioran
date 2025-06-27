@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 90519472949399246}
   - component: {fileID: 2762938330985254098}
   - component: {fileID: 7861471361879951690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VFX_WingsGlowBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4892,7 +4892,7 @@ GameObject:
   - component: {fileID: 8430592559192137810}
   - component: {fileID: 2660370147116732066}
   - component: {fileID: 4204143496766937429}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9810,7 +9810,7 @@ GameObject:
   - component: {fileID: 741751292493368481}
   - component: {fileID: 4809401410100824000}
   - component: {fileID: 3755100759745391128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StarDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}

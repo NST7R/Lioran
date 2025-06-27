@@ -1090,6 +1090,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &63545413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7074581730788057836, guid: 60bb07ad368c4fa4ebd45ab8847e1251, type: 3}
+  m_PrefabInstance: {fileID: 650458972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &69572136
 GameObject:
   m_ObjectHideFlags: 0
@@ -10994,6 +11005,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &926980540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 926980542}
+  - component: {fileID: 926980541}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &926980541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926980540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f17425e677084d41b4a1a1d5cde487d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leafCount: 0
+  witheredVolume: {fileID: 63545413}
+  colorfulVolume: {fileID: 1307795504}
+  transitionSpeed: 2
+  shockwaveEffectPrefab: {fileID: 7523406521624664457, guid: b0088446e95ed0a4882c1bd3bf81504c, type: 3}
+  shockwaveSpawnPoint: {fileID: 1905600153}
+--- !u!4 &926980542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926980540}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.9, y: -20.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &927017478
 GameObject:
   m_ObjectHideFlags: 0
@@ -16231,6 +16292,17 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1307795504 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1988898777632132442, guid: 65d3bdaefbd2c214cba066011b44bc72, type: 3}
+  m_PrefabInstance: {fileID: 1209852634}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1319471079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7998989801867460418, guid: 7e9b2cd11ddc300419003fab43b07109, type: 3}
@@ -27376,6 +27448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 7747570958877420281, guid: a477e27af6ef6144f8abd1b893e8849c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27789,3 +27865,4 @@ SceneRoots:
   - {fileID: 509006067}
   - {fileID: 650458972}
   - {fileID: 1209852634}
+  - {fileID: 926980542}
