@@ -11040,6 +11040,8 @@ MonoBehaviour:
   transitionSpeed: 2
   shockwaveEffectPrefab: {fileID: 7523406521624664457, guid: b0088446e95ed0a4882c1bd3bf81504c, type: 3}
   shockwaveSpawnPoint: {fileID: 1905600153}
+  LeafTocollect: 5
+  leafRestorationObject: {fileID: 0}
 --- !u!4 &926980542
 Transform:
   m_ObjectHideFlags: 0
