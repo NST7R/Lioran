@@ -460940,6 +460940,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2193683835880829492, guid: f3c041fcb9cbf7340a27b68e6f78c328, type: 3}
+      propertyPath: LeafTocollect
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2193683835880829492, guid: f3c041fcb9cbf7340a27b68e6f78c328, type: 3}
       propertyPath: colorfulVolume
       value: 
       objectReference: {fileID: 2126951866}
