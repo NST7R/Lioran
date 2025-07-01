@@ -1,21 +1,25 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Rendering;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LeafCounterManager : MonoBehaviour
 {
     public static LeafCounterManager Instance;
-    public int leafCount = 0;
 
+    public int leafCount = 0;
+    public float transitionSpeed = 2f;
+    public int LeafTocollect = 5;
+
+    [Header("Scene-specific references")]
     public Volume witheredVolume;
     public Volume colorfulVolume;
-    public float transitionSpeed = 2f;
     public GameObject shockwaveEffectPrefab;
     public Transform shockwaveSpawnPoint;
-    public int LeafTocollect;
-    public GameObject leafRestorationObject; 
+    public GameObject leafRestorationObject;
 
     private bool switched = false;
+    private static bool loaded = false;
 
     public event Action OnAllLeavesCollected;
 
@@ -25,17 +29,24 @@ public class LeafCounterManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadLeafCount();
+
+            if (!loaded)
+            {
+                LoadLeafCount();
+                loaded = true;
+            }
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
     private void Start()
     {
         leafCount = 0;
     }
+
     public void AddLeaf()
     {
         leafCount++;
@@ -54,7 +65,6 @@ public class LeafCounterManager : MonoBehaviour
 
     System.Collections.IEnumerator SwitchToJoyful()
     {
-        // Play shockwave effect
         if (shockwaveEffectPrefab && shockwaveSpawnPoint)
             Instantiate(shockwaveEffectPrefab, shockwaveSpawnPoint.position, Quaternion.identity);
 
@@ -91,5 +101,19 @@ public class LeafCounterManager : MonoBehaviour
         if (colorfulVolume) colorfulVolume.weight = 0f;
         if (leafRestorationObject) leafRestorationObject.SetActive(false);
     }
-}
 
+    // 🟢 This is our new initializer method
+    public void InitializeSceneReferences(
+        Volume withered,
+        Volume colorful,
+        Transform shockwavePoint,
+        GameObject restorationObj)
+    {
+        witheredVolume = withered;
+        colorfulVolume = colorful;
+        shockwaveSpawnPoint = shockwavePoint;
+        leafRestorationObject = restorationObj;
+
+        Debug.Log("LeafCounterManager scene references initialized.");
+    }
+}

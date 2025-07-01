@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leafCount: 0
+  transitionSpeed: 3
+  LeafTocollect: 25
   witheredVolume: {fileID: 0}
   colorfulVolume: {fileID: 0}
-  transitionSpeed: 3
   shockwaveEffectPrefab: {fileID: 7523406521624664457, guid: b0088446e95ed0a4882c1bd3bf81504c, type: 3}
   shockwaveSpawnPoint: {fileID: 0}
-  LeafTocollect: 3
+  leafRestorationObject: {fileID: 0}

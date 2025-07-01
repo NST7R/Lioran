@@ -272270,6 +272270,54 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!1 &1252476460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252476462}
+  - component: {fileID: 1252476461}
+  m_Layer: 0
+  m_Name: LeafSceneInitializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1252476461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252476460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce5b29d719185546a6ab83c61cf864f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  witheredVolume: {fileID: 483936945}
+  colorfulVolume: {fileID: 2126951866}
+  shockwaveSpawnPoint: {fileID: 911498931}
+  leafRestorationObject: {fileID: 823886801}
+--- !u!4 &1252476462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252476460}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -229.31, y: -71.9, z: 83.04559}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252629917
 GameObject:
   m_ObjectHideFlags: 0
@@ -307745,7 +307793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747570958877420281, guid: a477e27af6ef6144f8abd1b893e8849c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -448197,10 +448245,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2193683835880829492, guid: f3c041fcb9cbf7340a27b68e6f78c328, type: 3}
-      propertyPath: LeafTocollect
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2193683835880829492, guid: f3c041fcb9cbf7340a27b68e6f78c328, type: 3}
       propertyPath: colorfulVolume
       value: 
       objectReference: {fileID: 2126951866}
@@ -448259,10 +448303,6 @@ PrefabInstance:
     - target: {fileID: 6614659126968324970, guid: f3c041fcb9cbf7340a27b68e6f78c328, type: 3}
       propertyPath: m_Name
       value: CounterManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6614659126968324970, guid: f3c041fcb9cbf7340a27b68e6f78c328, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -448584,3 +448624,4 @@ SceneRoots:
   - {fileID: 6209930156998056082}
   - {fileID: 2103211484}
   - {fileID: 1326060283}
+  - {fileID: 1252476462}
