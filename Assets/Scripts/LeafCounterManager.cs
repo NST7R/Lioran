@@ -9,7 +9,7 @@ public class LeafCounterManager : MonoBehaviour
 
     public int leafCount = 0;
     public float transitionSpeed = 2f;
-    public int LeafTocollect = 5;
+    public int LeafTocollect = 26;
 
     [Header("Scene-specific references")]
     public Volume witheredVolume;
