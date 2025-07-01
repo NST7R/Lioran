@@ -11169,7 +11169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leafCount: 0
   transitionSpeed: 2
-  LeafTocollect: 10
+  LeafTocollect: 26
   witheredVolume: {fileID: 63545413}
   colorfulVolume: {fileID: 1307795504}
   shockwaveEffectPrefab: {fileID: 7523406521624664457, guid: b0088446e95ed0a4882c1bd3bf81504c, type: 3}

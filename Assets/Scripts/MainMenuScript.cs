@@ -55,7 +55,11 @@ public class MainMenuScript : MonoBehaviour
         yield return FadeManager.Instance.FadeOut(1f);
 
         // 6. Hide cutscene visuals
+        cutscenePlayer.Stop();
+        cutscenePlayer.targetTexture?.Release(); // Optional if using RenderTexture
         cutscenePlayer.gameObject.SetActive(false);
+
+        cutsceneScreen.texture = null;
         cutsceneScreen.gameObject.SetActive(false);
 
         // 7. Load first scene and hook up callback to restore audio
